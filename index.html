@@ -495,11 +495,12 @@
                 
                 <div class="md:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
                     <form id="contactForm" action="https://formsubmit.co/eternalmomentsprod@gmail.com" method="POST">
-                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
                         <input type="hidden" name="_subject" value="New Wedding Videography Inquiry">
-                        <input type="hidden" name="_template" value="table">
                         <input type="text" name="_honey" style="display:none">
                         <input type="hidden" name="_captcha" value="false">
+                        <div id="formSuccess" class="hidden text-green-600 text-center mt-4 font-medium">
+                            Message sent! We'll get back to you soon.
+                        </div>
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Your Names</label>
                             <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
@@ -782,18 +783,22 @@
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const submitText = submitBtn.querySelector('.submit-text');
         const loadingText = submitBtn.querySelector('.loading');
+        const formSuccess = document.getElementById('formSuccess');
         
-        contactForm.addEventListener('submit', function() {
+        contactForm.addEventListener('submit', function(e) {
             // Show loading state
             submitText.classList.add('hidden');
             loadingText.classList.remove('hidden');
             submitBtn.disabled = true;
+            formSuccess.classList.remove('hidden');
+            
+            // Submit normally
+            setTimeout(() => {
+                submitText.classList.remove('hidden');
+                loadingText.classList.add('hidden');
+                submitBtn.disabled = false;
+            }, 2000);
         });
-
-        function closeSuccessModal() {
-            document.getElementById('successModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
