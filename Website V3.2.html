@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Moments Wedding Videography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for smooth transitions */
+        .video-preview {
+            transition: all 0.3s ease;
+        }
+        .video-preview:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Hero section overlay */
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c084fc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9333ea;
+        }
+        
+        /* Dark mode styles */
+        .dark body {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        .dark nav {
+            background-color: #1f2937;
+        }
+        .dark .bg-white {
+            background-color: #1f2937 !important;
+        }
+        .dark .text-gray-800 {
+            color: #f3f4f6 !important;
+        }
+        .dark .text-gray-600 {
+            color: #d1d5db !important;
+        }
+        .dark .bg-gray-50 {
+            background-color: #111827 !important;
+        }
+        .dark .fa-moon::before {
+            content: "\f185"; /* Sun icon when dark mode is active */
+        }
+        /* Button text in dark mode */
+        .dark .bg-gray-100 {
+            background-color: #374151 !important;
+        }
+        .dark .bg-gray-100:hover {
+            background-color: #4b5563 !important;
+        }
+        .dark .bg-gray-100, 
+        .dark .bg-gray-100:hover {
+            color: #f3f4f6 !important;
+        }
+        /* FAQ and Contact section text */
+        .dark .text-gray-900 {
+            color: #f9fafb !important;
+        }
+        .dark .text-gray-700 {
+            color: #e5e7eb !important;
+        }
+        .dark .border-gray-200 {
+            border-color: #374151 !important;
+        }
+        .dark .bg-gray-50 {
+            background-color: #1f2937 !important;
+        }
+
+        /* Animation for the play button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .play-btn:hover {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-serif font-bold text-purple-600" translate="no">Eternal Moments</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#" class="text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#portfolio" class="text-gray-600 hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+                        <a href="#about" class="text-gray-600 hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#contact" class="text-gray-600 hover:text-purple-500 px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center space-x-4">
+                    <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                        <i class="fas fa-moon text-xl"></i>
+                    </button>
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 md:hidden">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden absolute w-full bg-white shadow-lg z-50">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-purple-600 bg-purple-50">Home</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50">Portfolio</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50">About</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50">Contact</a>
+                <a href="#contact" class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center mt-2 px-6 py-3 rounded-full text-base font-medium transition duration-300">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center">
+        <div class="absolute inset-0 overflow-hidden">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-couple-getting-married-on-a-beach-4526-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                Capturing Love Stories <br>That Last Forever
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto">
+                Beautifully crafted wedding films that preserve your special day's most precious moments.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-medium transition duration-300 shadow-lg">
+                    View My Work
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#portfolio" class="text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">My Wedding Films</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Each wedding is unique. I strive to capture the true essence of your love story in every frame.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Wedding 1 -->
+                <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
+                    <img src="https://i.postimg.cc/CMHCg1YS/DSC-3213.jpg" 
+                         alt="Paul & Precious Wedding" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <button class="play-btn relative" onclick="openModal('paul-precious-video')">
+                            <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-3xl text-white"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="text-2xl font-serif font-bold mb-1">Paul & Precious</h3>
+                        <p class="text-purple-300">Krakow Wedding • June 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Wedding 2 -->
+                <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
+                    <img src="https://i.postimg.cc/TPK8zFDv/S-H-E.jpg" 
+                         alt="Shelesea & Herlander" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <button class="play-btn relative" onclick="openModal('Shelesea & Herlander')">
+                            <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-3xl text-white"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="text-2xl font-serif font-bold mb-1">Shelesea & Herlander</h3>
+                        <p class="text-purple-300">Krakow Wedding • September 2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coming Soon Placeholder -->
+            <div class="text-center mt-16">
+                <div class="inline-block px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-medium">
+                    <i class="fas fa-spinner fa-spin mr-2"></i> More beautiful weddings coming soon!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-purple-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Happy Couples</h2>
+                <div class="w-24 h-1 bg-purple-400 mx-auto mb-6"></div>
+                <p class="text-lg text-purple-200 max-w-2xl mx-auto">
+                    Hear what couples say about their experience working with me
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-300 text-xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="italic text-white mb-6">
+                        "We are blown away by the beautiful video of our wedding day! You captured every special moment perfectly and created a film we'll cherish forever. The way you edited the footage to tell our story was magical."
+                    </p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4 object-cover" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah">
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-purple-300 text-sm">Bride, June 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-300 text-xl mr-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="italic text-white mb-6">
+                        "Working with you was such a pleasure! You were so professional yet unobtrusive during our big day. The video brought us to tears - you caught all the little moments we missed and the emotions were palpable. Our film is better than we ever imagined!"
+                    </p>
+                    <div class="flex items-center">
+                        <img class="w-12 h-12 rounded-full mr-4 object-cover" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily">
+                        <div>
+                            <h4 class="font-bold">Emily Parker</h4>
+                            <p class="text-purple-300 text-sm">Bride, September 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="https://i.postimg.cc/KY55G8S6/face2.jpg" 
+                         alt="Videographer working" class="w-full h-auto rounded-xl shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">About Me</h2>
+                    <div class="w-24 h-1 bg-purple-600 mb-6"></div>
+                    <p class="text-gray-600 mb-4">
+                        Hi, I'm Josiah. I fell in love with wedding videography when my best friend ask to film a wedding with him. Seeing how much those moments meant to them inspired me to pursue this beautiful craft professionally.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Although I'm just starting my journey with two weddings under my belt, I bring fresh eyes, contagious enthusiasm, and a commitment to creating films that genuinely reflect each couple's unique love story. My approach is unobtrusive yet attentive, ensuring I capture all the authentic emotions and details of your special day.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-film text-purple-600"></i>
+                            </div>
+                            <span class="font-medium">Cinematic Style</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-heart text-purple-600"></i>
+                            </div>
+                            <span class="font-medium">Passionate Storyteller</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-clock text-purple-600"></i>
+                            </div>
+                            <span class="font-medium">Fast Turnaround</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i class="fas fa-camera text-purple-600"></i>
+                            </div>
+                            <span class="font-medium">Quality Equipment</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-medium transition duration-300">
+                        Let's Talk About Your Wedding
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Wedding Film Packages</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Simple, transparent pricing with packages to suit your needs
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Essentials Package</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-6">$200</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Up to 4 hours of coverage</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>3-5 minute highlight film</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Ceremony edit</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times-circle mr-3"></i>
+                            <span>No speeches/first dance</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times-circle mr-3"></i>
+                            <span>No drone footage</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
+                        Inquire Now
+                    </a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-2 border-purple-600 transform -translate-y-2">
+                    <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">
+                        MOST POPULAR
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Signature Package</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-6">$300</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Full day coverage (up to 8 hours)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>5-7 minute highlight film</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Ceremony & speeches edit</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Special dances edit</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times-circle mr-3"></i>
+                            <span>No drone footage included... yet</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
+                        Get This Package
+                    </a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Custom Package</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-6">$500+</div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Full day coverage + rehearsal</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Extended documentary edit</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Multiple camera angles</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Engagement session included (Interview)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Other requests</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
+                        Build Your Package
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 text-gray-600">
+                <p class="mb-4">All packages include digital delivery</p>
+                <div class="inline-block px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-medium">
+                    <i class="fas fa-calendar-check mr-2"></i> Limited availability for 2025 dates - book early!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex gap-12 items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-200 mb-6">Let's Capture Your Love Story</h2>
+                    <div class="w-24 h-1 bg-purple-600 mb-6"></div>
+                    <div class="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg shadow-sm mb-8">
+                        <p class="text-lg text-gray-300 mb-6 font-medium">
+                            Whether you're just starting to plan your wedding or have all the details finalized, I'd love to hear about your vision. Fill out the form and I'll get back to you as soon as possible.
+                        </p>
+                        
+                        <div class="space-y-4 border-t border-gray-200 pt-4">
+                            <div class="flex items-center">
+                                <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Email Me</h4>
+                                    <a href="mailto:contact@eternalmoments.com" class="text-purple-600 hover:text-purple-800 font-medium">eternalmomentsprod@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Call Me</h4>
+                                    <a href="tel:+15551234567" class="text-purple-600 hover:text-purple-800 font-medium">(555) 123-4567</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Follow Me</h4>
+                                    <a href="#" class="text-purple-600 hover:text-purple-800 font-medium">@eternalmomentsfilms</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <form id="contactForm" action="https://formsubmit.co/eternalmomentsprod@gmail.com" method="POST">
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                        <input type="hidden" name="_subject" value="New Wedding Videography Inquiry">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Your Names</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-6">
+                            <label for="date" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Wedding Date</label>
+                            <input type="date" id="date" name="date" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div class="mb-6">
+                            <label for="package" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Package Interest</label>
+                            <select id="package" name="package" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                                <option value="">Select a package</option>
+                                <option value="Essentials">Essentials Package ($200)</option>
+                                <option value="Signature">Signature Package ($300)</option>
+                                <option value="Custom">Custom Package ($500+)</option>
+                                <option value="Not sure">Not sure - would like recommendations</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Tell Me About Your Wedding</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-4 rounded-lg font-medium transition duration-300">
+                            <span class="submit-text">Send Inquiry</span>
+                            <span class="loading hidden">
+                                <i class="fas fa-spinner fa-spin mr-2"></i> Sending...
+                            </span>
+                        </button>
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Common questions from couples
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900">How far in advance should we book videography?</span>
+                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-800">
+                        <p class="text-gray-600">
+                            I recommend booking as soon as you have your wedding date and venue secured to ensure availability. Popular dates (especially weekends in summer and fall) often book 2-3 months in advance. That said, I sometimes have last-minute availability, so don't hesitate to inquire even if your wedding is coming up soon.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900">How long does it take to receive our wedding film?</span>
+                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 bg-white">
+                        <p class="text-gray-600">
+                            My current turnaround time is 6-8 weeks for the highlight film and 8-10 weeks for any additional edits (ceremony, speeches, dances). I pride myself on delivering beautiful films in less time than many competitors while still maintaining my high standards for quality. You'll receive a digital preview first and have the opportunity to request minor tweaks if needed.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900">Do you travel for destination weddings?</span>
+                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 bg-white">
+                        <p class="text-gray-600">
+                            Absolutely! I love destination weddings. Travel within 100 KM is included in my packages. Beyond that, I charge reasonable travel fees depending on location. I base in Krakow Poland, I require the couple to cover transportation. I'll handle all equipment logistics and provide you with beautiful footage no matter where in the country you say "I do."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-100 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900">What's your payment structure?</span>
+                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 bg-white">
+                        <p class="text-gray-600">
+                            To secure your date, I require a 30% non-refundable deposit with a signed contract. The second payment of 30% is due 90 days before your wedding, and the final 40% balance is due 14 days prior to your wedding date. I accept all major credit cards, PayPal, bank transfers, and checks. For destination weddings, travel costs may be required upfront when booking flights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-purple-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Ready to Preserve Your Special Day?</h2>
+            <p class="text-xl text-purple-200 mb-8">
+                Limited availability for 2025 and early 2026 dates. Contact me today to check availability and start planning your perfect wedding film.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-white hover:bg-purple-100 text-purple-800 rounded-full font-medium transition duration-300 shadow-lg">
+                    Get In Touch
+                </a>
+                <a href="#portfolio" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
+                    See More Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-serif font-bold text-white mb-4" translate="no">Eternal Moments</h3>
+                    <p class="mb-6">
+                        Capturing the love, joy, and emotion of your wedding day through beautiful cinematic storytelling.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-vimeo-v text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium text-lg mb-4" translate="no">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300" translate="no">Home</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition duration-300" translate="no">Portfolio</a></li>
+                        <li><a href="#about" class="hover:text-white transition duration-300" translate="no">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition duration-300" translate="no">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-medium text-lg mb-4" translate="no">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition duration-300" translate="no">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300" translate="no">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300" translate="no">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p translate="no">&copy; 2024 Eternal Moments Wedding Videography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center">
+        <div class="relative w-full mx-4" style="max-width: 90vw; max-height: 90vh">
+            <button onclick="closeModal()" class="absolute -top-12 -right-12 bg-white rounded-full w-10 h-10 flex items-center justify-center z-50 hover:bg-gray-100 transition duration-300 md:-top-4 md:-right-4">
+                <i class="fas fa-times text-gray-900 text-xl"></i>
+            </button>
+            
+            <div class="aspect-w-16 aspect-h-9 w-full relative" style="padding-bottom: 56.25%"> <!-- 16:9 aspect ratio -->
+                <iframe id="modalVideo" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 relative">
+                <button onclick="closeSuccessModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100">
+                        <i class="fas fa-check text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-5 mb-2">Thank you!</h3>
+                    <p class="text-gray-600 mb-6">
+                        Your message has been sent successfully. I'll get back to you as soon as possible.
+                    </p>
+                    <button onclick="closeSuccessModal()" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        Continue Browsing
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Toggle icon between plus and minus
+                if (answer.classList.contains('hidden')) {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+                
+                // Close other open answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer && !item.classList.contains('hidden')) {
+                        item.classList.add('hidden');
+                        const otherIcon = item.previousElementSibling.querySelector('i');
+                        otherIcon.classList.remove('fa-minus');
+                        otherIcon.classList.add('fa-plus');
+                    }
+                });
+            });
+        });
+
+        // Video modal functions
+        function openModal(videoId) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('modalVideo');
+            
+            // These would be replaced with your actual video links
+            const videos = {
+                'paul-precious-video': 'https://www.youtube.com/embed/s6GoCyAeIEk',
+                'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I'
+            };
+            
+            iframe.src = videos[videoId];
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('modalVideo');
+            
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Contact form submission feedback
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const submitText = submitBtn.querySelector('.submit-text');
+        const loadingText = submitBtn.querySelector('.loading');
+        
+        contactForm.addEventListener('submit', function() {
+            // Show loading state
+            submitText.classList.add('hidden');
+            loadingText.classList.remove('hidden');
+            submitBtn.disabled = true;
+        });
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.querySelector('.mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        location.hash = targetId;
+                    }
+                }
+            });
+        });
+
+        // Hero video mute toggle
+        const heroVideo = document.querySelector('header video');
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'KeyM') {
+                heroVideo.muted = !heroVideo.muted;
+            }
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference or system preference
+        const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && userPrefersDark)) {
+            html.classList.add('dark');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        });
+    </script>
+
+        <!-- Video Modal (needs to exist for your JS to work properly) -->
+        <div id="videoModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <div class="relative w-full max-w-4xl aspect-video">
+                <iframe id="modalVideo"
+                     class="absolute top-0 left-0 w-full h-full"
+                     src=""
+                     frameborder="0"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                     allowfullscreen>
+                </iframe>
+            <!-- Close button in top-right -->
+            <button onclick="closeModal()" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+         </div>
+     </div>
+</body>
+</html>
