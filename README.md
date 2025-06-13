@@ -39,12 +39,12 @@ eternalmomentsprod@gmail.com
 
 ## 📂 Structure
 
-📁 Eternal-Moments/
-├── index.html # Main site
-├── script.js # All custom JavaScript
-├── styles.css # Custom styling & Tailwind enhancements
-├── thankyou.html # Post-submission redirect page
-├── privacy.html # Legal privacy policy
-├── terms.html # Terms of service
-├── cookies.html # Cookie disclaimer (none used)
-├── sitemap.xml # For search engine indexing
+## 📁 Eternal-Moments/
+- ├── index.html # Main site
+- ├── script.js # All custom JavaScript
+- ├── styles.css # Custom styling & Tailwind enhancements
+- ├── thankyou.html # Post-submission redirect page
+- ├── privacy.html # Legal privacy policy
+- ├── terms.html # Terms of service
+- ├── cookies.html # Cookie disclaimer (none used)
+- ├── sitemap.xml # For search engine indexing
