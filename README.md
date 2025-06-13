@@ -48,3 +48,12 @@ eternalmomentsprod@gmail.com
 - ├── terms.html # Terms of service
 - ├── cookies.html # Cookie disclaimer (none used)
 - ├── sitemap.xml # For search engine indexing
+
+---
+
+## 🔐 Legal
+
+© [Eternal Moments Wedding Videography](https://eternalmomentsprod.github.io/Eternal-Moments/)  
+All rights reserved.
+
+View: [Privacy Policy](privacy.html) · [Terms of Service](terms.html) · [Cookie Policy](cookies.html)
