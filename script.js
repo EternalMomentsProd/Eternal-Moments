@@ -47,18 +47,12 @@ const txt = btn.querySelector('.submit-text');
 const loading = btn.querySelector('.loading');
 const successMsg = document.getElementById('formSuccess');
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
+form.addEventListener('submit', () => {
   txt.classList.add('hidden');
   loading.classList.remove('hidden');
   btn.disabled = true;
-  successMsg.classList.remove('hidden');
-  setTimeout(() => {
-    txt.classList.remove('hidden');
-    loading.classList.add('hidden');
-    btn.disabled = false;
-  }, 2000);
 });
+
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
