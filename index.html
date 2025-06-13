@@ -15,29 +15,27 @@
 </head>
 <body class="font-sans bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-
-  <!-- Insert all your HTML content from the full file here -->
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav class="fixed w-full bg-white/90 dark:bg-gray-800 backdrop-blur-sm z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-serif font-bold text-purple-600" translate="no">Eternal Moments</span>
+                    <span class="text-2xl font-serif font-bold text-purple-600 dark:text-purple-500" translate="no">Eternal Moments</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
                         <a href="#" class="text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="#portfolio" class="text-gray-600 hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
-                        <a href="#about" class="text-gray-600 hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
-                        <a href="#contact" class="text-gray-600 hover:text-purple-500 px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="#portfolio" class="text-gray-600 dark:text-gray-100 hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+                        <a href="#about" class="text-gray-600 dark:text-gray-100 hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#contact" class="text-gray-600 dark:text-gray-100 hover:text-purple-500 px-3 py-2 text-sm font-medium">Contact</a>
                         <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300">Get a Quote</a>
                     </div>
                 </div>
                 <div class="-mr-2 flex items-center space-x-4">
-                    <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                    <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
                         <i class="fas fa-moon text-xl"></i>
                     </button>
-                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 md:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -45,7 +43,7 @@
         </div>
         
         <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden absolute w-full bg-white shadow-lg z-50">
+        <div class="mobile-menu hidden md:hidden absolute w-full bg-white dark:bg-gray-700 shadow-lg z-50">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-purple-600 bg-purple-50">Home</a>
                 <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-purple-600 hover:bg-purple-50">Portfolio</a>
@@ -91,9 +89,9 @@
     <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">My Wedding Films</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">My Wedding Films</h2>
                 <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                     Each wedding is unique. I strive to capture the true essence of your love story in every frame.
                 </p>
             </div>
@@ -150,7 +148,7 @@
                 <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Happy Couples</h2>
                 <div class="w-24 h-1 bg-purple-400 mx-auto mb-6"></div>
                 <p class="text-lg text-purple-200 max-w-2xl mx-auto">
-                    Hear what couples say about their experience working with me
+                    Hear what couples say about their experience working with me.
                 </p>
             </div>
             
@@ -212,12 +210,12 @@
                          alt="Videographer working" class="w-full h-auto rounded-xl shadow-xl">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">About Me</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">About Me</h2>
                     <div class="w-24 h-1 bg-purple-600 mb-6"></div>
-                    <p class="text-gray-600 mb-4">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
                         Hi, I'm Josiah. I fell in love with wedding videography when my best friend asked to film a wedding with him. Seeing how much those moments meant to them inspired me to pursue this beautiful craft professionally.
                     </p>
-                    <p class="text-gray-600 mb-6">
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
                         Although I'm just starting my journey with two weddings under my belt, I bring fresh eyes, contagious enthusiasm, and a commitment to creating films that genuinely reflect each couple's unique love story. My approach is unobtrusive yet attentive, ensuring I capture all the authentic emotions and details of your special day.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mb-8">
@@ -258,16 +256,16 @@
     <section class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Wedding Film Packages</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Wedding Film Packages</h2>
                 <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
                     Simple, transparent pricing with packages to suit your needs
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Essentials Package</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-200 mb-4">Essentials Package</h3>
                     <div class="text-4xl font-bold text-purple-600 mb-6">$200</div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center">
@@ -291,7 +289,7 @@
                             <span>No drone footage</span>
                         </li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
+                    <a href="#contact" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
                         Inquire Now
                     </a>
                 </div>
@@ -300,7 +298,7 @@
                     <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">
                         MOST POPULAR
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Signature Package</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Signature Package</h3>
                     <div class="text-4xl font-bold text-purple-600 mb-6">$300</div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center">
@@ -330,7 +328,7 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">Custom Package</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-200 mb-4">Custom Package</h3>
                     <div class="text-4xl font-bold text-purple-600 mb-6">$500+</div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center">
@@ -354,13 +352,13 @@
                             <span>Other requests</span>
                         </li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-gray-100 hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
+                    <a href="#contact" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
                         Build Your Package
                     </a>
                 </div>
             </div>
             
-            <div class="text-center mt-12 text-gray-600">
+            <div class="text-center mt-12 text-gray-600 dark:text-gray-300">
                 <p class="mb-4">All packages include digital delivery</p>
                 <div class="inline-block px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-medium">
                     <i class="fas fa-calendar-check mr-2"></i> Limited availability for 2025 dates - book early!
@@ -370,24 +368,24 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900 text-white dark:bg-gray-950">
+    <section id="contact" class="py-20 bg-gray-300 text-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex gap-12 items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-200 mb-6">Let's Capture Your Love Story</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-6">Let's Capture Your Love Story</h2>
                     <div class="w-24 h-1 bg-purple-600 mb-6"></div>
-                    <div class="bg-gray-800/80 backdrop-blur-sm p-6 rounded-lg shadow-sm mb-8">
-                        <p class="text-lg text-gray-300 mb-6 font-medium">
+                    <div class="bg-gray-100 dark:bg-gray-800 backdrop-blur-sm p-6 rounded-lg shadow-sm mb-8">
+                        <p class="text-lg text-gray-700 dark:text-gray-200 mb-6 font-medium">
                             Whether you're just starting to plan your wedding or have all the details finalized, I'd love to hear about your vision. Fill out the form and I'll get back to you as soon as possible.
                         </p>
                         
-                        <div class="space-y-4 border-t border-gray-200 pt-4">
+                        <div class="space-y-4 border-t border-gray-300 dark:border-gray-600 pt-4">
                             <div class="flex items-center">
                                 <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600">
                                     <i class="fas fa-envelope text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg text-white">Email Me</h4>
+                                    <h4 class="font-bold text-lg text-gray-700 dark:text-gray-200">Email Me</h4>
                                     <a href="mailto:contact@eternalmoments.com" class="text-purple-600 hover:text-purple-800 font-medium">eternalmomentsprod@gmail.com</a>
                                 </div>
                             </div>
@@ -397,7 +395,7 @@
                                     <i class="fab fa-instagram text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg text-white">Follow Me</h4>
+                                    <h4 class="font-bold text-lg text-gray-700 dark:text-gray-200">Follow Me</h4>
                                     <a href="#" class="text-purple-600 hover:text-purple-800 font-medium">@eternalmomentsprod</a>
                                 </div>
                             </div>
@@ -423,11 +421,11 @@
                         </div>
                         <div class="mb-6">
                             <label for="date" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Wedding Date</label>
-                            <input type="date" id="date" name="date" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                            <input type="date" id="date" name="date" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-700 dark:bg-gray-700 dark:text-white">
                         </div>
                         <div class="mb-6">
                             <label for="package" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Package Interest</label>
-                            <select id="package" name="package" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
+                            <select id="package" name="package" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-700 dark:bg-gray-700 dark:text-white">
                                 <option value="">Select a package</option>
                                 <option value="Essentials">Essentials Package ($200)</option>
                                 <option value="Signature">Signature Package ($300)</option>
@@ -455,57 +453,57 @@
     <section class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
                 <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                     Common questions from couples
                 </p>
             </div>
             
             <div class="space-y-4">
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900">How far in advance should we book videography?</span>
+                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">How far in advance should we book videography?</span>
                         <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-800 dark:text-gray-200">
-                        <p class="text-gray-600">
+                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+                        <p class="text-gray-600 dark:text-gray-300">
                             I recommend booking as soon as you have your wedding date and venue secured to ensure availability. Popular dates (especially weekends in summer and fall) often book 2-3 months in advance. That said, I sometimes have last-minute availability, so don't hesitate to inquire even if your wedding is coming up soon.
                         </p>
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900">How long does it take to receive our wedding film?</span>
+                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">How long does it take to receive our wedding film?</span>
                         <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-800 dark:text-gray-200">
-                        <p class="text-gray-600">
+                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+                        <p class="text-gray-600 dark:text-gray-300">
                             My current turnaround time is 6-8 weeks for the highlight film and 8-10 weeks for any additional edits (ceremony, speeches, dances). I pride myself on delivering beautiful films in less time than many competitors while still maintaining my high standards for quality. You'll receive a digital preview first and have the opportunity to request minor tweaks if needed.
                         </p>
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900">Do you travel for destination weddings?</span>
+                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">Do you travel for destination weddings?</span>
                         <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-800 dark:text-gray-200">
-                        <p class="text-gray-600">
-                            Absolutely! I love destination weddings. Travel within 100 KM is included in my packages. Beyond that, I charge reasonable travel fees depending on location. I base in Krakow Poland, I require the couple to cover transportation. I'll handle all equipment logistics and provide you with beautiful footage no matter where in the country you say "I do."
+                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Absolutely! I love destination weddings. Travel within 50 KM is included in my packages. Beyond that, I charge reasonable travel fees depending on location. I base in Krakow Poland, I require the couple to cover transportation. I'll handle all equipment logistics and provide you with beautiful footage no matter where you say "I do."
                         </p>
                     </div>
                 </div>
                 
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-50 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900">What's your payment structure?</span>
+                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">What's your payment structure?</span>
                         <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
                     </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-800 dark:text-gray-200">
-                        <p class="text-gray-600">
+                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+                        <p class="text-gray-600 dark:text-gray-300">
                             To secure your date, I require a 30% non-refundable deposit with a signed contract. The second payment of 30% is due 90 days before your wedding, and the final 40% balance is due 14 days prior to your wedding date. I accept all major credit cards, PayPal, bank transfers, and checks. For destination weddings, travel costs may be required upfront when booking flights.
                         </p>
                     </div>
@@ -515,14 +513,14 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-purple-900 dark:bg-purple-950 text-white">
+    <section class="py-16 bg-purple-900 dark:bg-purple-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Ready to Preserve Your Special Day?</h2>
             <p class="text-xl text-purple-200 mb-8">
                 Limited availability for 2025 and early 2026 dates. Contact me today to check availability and start planning your perfect wedding film.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="px-8 py-4 bg-white hover:bg-purple-100 text-purple-800 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white ...">
+                <a href="#portfolio" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
                     Get In Touch
                 </a>
                 <a href="#portfolio" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
