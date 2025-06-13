@@ -87,3 +87,5 @@ document.addEventListener('keydown', (e) => {
     closeModal();
   }
 });
+
+document.getElementById('copyright-year').innerHTML = `&copy; ${new Date().getFullYear()}`;
