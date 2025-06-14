@@ -24,12 +24,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Videographer in Krakow | Eternal Moments Cinematic Films</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-        darkMode: 'class',
-    };
-    </script>
+    <link rel="stylesheet" href="css/tailwind.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -121,7 +116,7 @@
                 <!-- Wedding 1 -->
                 <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
                     <img src="images/paul-precious.webp" 
-                          alt="Paul & Precious Wedding" width="640" height="360" loading="lazy">
+                          alt="Paul & Precious Wedding" width="1280" height="720" loading="lazy">
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <button class="play-btn relative" onclick="openModal('paul-precious-video')">
                             <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
@@ -138,7 +133,7 @@
                 <!-- Wedding 2 -->
                 <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
                     <img src="images/shelsea-herlander.webp" 
-                         alt="Shelesea & Herlander" width="640" height="360" loading="lazy">
+                         alt="Shelesea & Herlander" width="1280" height="720" loading="lazy">
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <button class="play-btn relative" onclick="openModal('Shelesea & Herlander')">
                             <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
@@ -649,6 +644,6 @@
         </div>
     </div>
 
-  <script src="script.js defer"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,3 +1,14 @@
+function openModal(videoId) {
+  document.body.style.overflow = 'hidden';
+  document.getElementById('videoModal').classList.remove('hidden');
+  document.getElementById('modalVideo').src = videos[videoId];
+}
+function closeModal() {
+  document.getElementById('modalVideo').src = '';
+  document.getElementById('videoModal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile menu toggle
   document.querySelector('.mobile-menu-button').addEventListener('click', () => {
@@ -27,16 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     'paul-precious-video': 'https://www.youtube.com/embed/s6GoCyAeIEk',
     'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I',
   };
-  function openModal(videoId) {
-    document.body.style.overflow = 'hidden';
-    document.getElementById('videoModal').classList.remove('hidden');
-    document.getElementById('modalVideo').src = videos[videoId];
-  }
-  function closeModal() {
-    document.getElementById('modalVideo').src = '';
-    document.getElementById('videoModal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-  }
+  
   document.getElementById('videoModal').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
   });
