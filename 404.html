@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found | Eternal Moments</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Eternal Moments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-4px); }
+        40%, 80% { transform: translateX(4px); }
+        }
+        .shake {
+            animation: shake 0.7s ease-in-out infinite;
+        }
+    </style>
+
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-white flex flex-col items-center justify-center min-h-screen px-4 text-center">
-  <h1 class="text-6xl font-bold text-purple-600 mb-4">404</h1>
+  <h1 class="text-6xl font-bold text-purple-600 mb-4 shake">404</h1>
   <h2 class="text-2xl font-semibold mb-2">Oops! This page doesn't exist.</h2>
   <p class="mb-6 text-gray-600 dark:text-gray-300">The page you’re looking for may have moved or been removed.</p>
   <a href="index.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full transition duration-300">
