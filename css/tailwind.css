@@ -6,7 +6,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
 a{color:inherit;text-decoration:inherit}
 button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:inherit;color:inherit;margin:0;padding:0}
 button,select{text-transform:none}
-button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:transparent;background-image:none}
+button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;appearance:button;background-color:transparent;background-image:none}
 [role=button]{cursor:pointer}
 table{border-collapse:collapse}
 caption{text-align:left}
