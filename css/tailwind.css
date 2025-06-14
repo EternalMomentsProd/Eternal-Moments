@@ -1,1 +1,7 @@
+/*! Eternal Moments Minimal Tailwind Build */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Include any custom tweaks here if needed */
 
