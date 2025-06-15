@@ -94,3 +94,32 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById('copyright-year').innerHTML = `&copy; ${new Date().getFullYear()}`;
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id], header[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function activateLinkOnScroll() {
+    const scrollY = window.scrollY;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach((link) => {
+          link.classList.remove("text-purple-600", "bg-purple-50");
+          link.classList.add("text-gray-600");
+
+          if (link.getAttribute("href") === `#${sectionId}`) {
+            link.classList.remove("text-gray-600");
+            link.classList.add("text-purple-600", "bg-purple-50");
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", activateLinkOnScroll);
+});
