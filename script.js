@@ -122,4 +122,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", activateLinkOnScroll);
+  window.addEventListener("load", activateLinkOnScroll);
 });
