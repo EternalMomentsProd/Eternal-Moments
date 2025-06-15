@@ -50,8 +50,8 @@
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-}
-.dark .hero-overlay {
-  background: rgba(0, 0, 0, 0.7); /* slightly darker overlay in dark mode */
+  @apply absolute inset-0 bg-gradient-to-br 
+          from-black/50 via-black/30 to-transparent 
+          dark:from-black/80 dark:via-black/60 dark:to-black/30 
+          transition-all duration-500;
 }

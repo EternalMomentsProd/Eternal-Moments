@@ -57,17 +57,31 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) {
-        document.querySelector('.mobile-menu').classList.add('hidden');
-        window.scrollTo({ top: t.offsetTop - 100, behavior: 'smooth' });
-      }
-    });
+// Smooth scroll with immediate nav highlight (no delay)
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+
+    // Immediately highlight clicked link if it has .nav-link
+    if (a.classList.contains('nav-link')) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-purple-600'));
+      a.classList.add('text-purple-600');
+    }
+
+    // Scroll to section
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+    }
+
+    // Hide mobile menu if open
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+    }
   });
+});
+
 
   // Dark mode toggle & persistence
   const toggle = document.getElementById('darkModeToggle');
