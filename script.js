@@ -3,6 +3,7 @@ function openModal(videoId) {
   document.getElementById('videoModal').classList.remove('hidden');
   document.getElementById('modalVideo').src = videos[videoId];
 }
+
 function closeModal() {
   document.getElementById('modalVideo').src = '';
   document.getElementById('videoModal').classList.add('hidden');
@@ -11,8 +12,8 @@ function closeModal() {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile menu toggle
-  document.querySelector('.mobile-menu-button').addEventListener('click', () => {
-    document.querySelector('.mobile-menu').classList.toggle('hidden');
+  document.querySelector('.mobile-menu-button')?.addEventListener('click', () => {
+    document.querySelector('.mobile-menu')?.classList.toggle('hidden');
   });
 
   // FAQ accordion functionality
@@ -20,95 +21,101 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener('click', () => {
       const ans = btn.nextElementSibling;
       const icon = btn.querySelector('i');
-      ans.classList.toggle('hidden');
-      icon.classList.toggle('fa-plus');
-      icon.classList.toggle('fa-minus');
+
+      // Close others
       document.querySelectorAll('.faq-answer').forEach(a => {
         if (a !== ans && !a.classList.contains('hidden')) {
           a.classList.add('hidden');
           const i = a.previousElementSibling.querySelector('i');
-          i.classList.replace('fa-minus', 'fa-plus');
+          i?.classList.replace('fa-minus', 'fa-plus');
         }
       });
+
+      // Toggle current
+      ans.classList.toggle('hidden');
+      icon?.classList.toggle('fa-plus');
+      icon?.classList.toggle('fa-minus');
     });
   });
 
-  // Video modal open/close
+  // Video modal
   const videos = {
     'paul-precious-video': 'https://www.youtube.com/embed/s6GoCyAeIEk',
     'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I',
   };
-  
-  document.getElementById('videoModal').addEventListener('click', e => {
+
+  document.getElementById('videoModal')?.addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
   });
 
-  // Contact form submission simulation
+  // Contact form logic with safety check
   const form = document.getElementById('contactForm');
-  const btn = form.querySelector('button[type="submit"]');
-  const txt = btn.querySelector('.submit-text');
-  const loading = btn.querySelector('.loading');
+  const btn = form?.querySelector('button[type="submit"]');
+  const txt = btn?.querySelector('.submit-text');
+  const loading = btn?.querySelector('.loading');
   const successMsg = document.getElementById('formSuccess');
 
-  form.addEventListener('submit', () => {
-    txt.classList.add('hidden');
-    loading.classList.remove('hidden');
-    btn.disabled = true;
-  });
-
-
-// Smooth scroll with immediate nav highlight (no delay)
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-
-    // Immediately highlight clicked link if it has .nav-link
-    if (a.classList.contains('nav-link')) {
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-purple-600'));
-      a.classList.add('text-purple-600');
-    }
-
-    // Scroll to section
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
-    }
-
-    // Hide mobile menu if open
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-});
-
-
-  // Dark mode toggle & persistence
-  const toggle = document.getElementById('darkModeToggle');
-  const root = document.documentElement;
-  if (
-    localStorage.getItem('darkMode') === 'true' ||
-    (!localStorage.getItem('darkMode') &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    root.classList.add('dark');
+  if (form && btn && txt && loading && successMsg) {
+    form.addEventListener('submit', () => {
+      txt.classList.add('hidden');
+      loading.classList.remove('hidden');
+      btn.disabled = true;
+    });
   }
-  toggle.addEventListener('click', () => {
-    root.classList.toggle('dark');
-    localStorage.setItem('darkMode', root.classList.contains('dark'));
+
+  // Scroll behavior + highlight
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+
+      if (a.classList.contains('nav-link')) {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-purple-600'));
+        a.classList.add('text-purple-600');
+      }
+
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+      }
+
+      const mobileMenu = document.querySelector('.mobile-menu');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
   });
 
-  // ECS key to exit media player
+  // Dark Mode Toggle with localStorage
+  const toggle = document.getElementById("darkModeToggle");
+  const html = document.documentElement;
+
+  if (localStorage.getItem("theme") === "dark") {
+    html.classList.add("dark");
+  } else if (
+    !localStorage.getItem("theme") &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    html.classList.add("dark");
+  }
+
+  toggle?.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+  });
+
+  // ESC closes video modal
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
+    if (e.key === 'Escape') closeModal();
   });
 
-  document.getElementById('copyright-year').innerHTML = `&copy; ${new Date().getFullYear()}`;
-
+  // Set copyright
+  const yearSpan = document.getElementById('copyright-year');
+  if (yearSpan) {
+    yearSpan.innerHTML = `&copy; ${new Date().getFullYear()}`;
+  }
 });
 
+// Nav link highlight on scroll
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section[id], header[id]");
   const navLinks = document.querySelectorAll(".nav-link");

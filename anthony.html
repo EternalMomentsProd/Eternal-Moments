@@ -1,50 +1,313 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photography by Anthony | Eternal Moments</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Load custom styles first -->
   <link rel="stylesheet" href="tailwind.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
 
-  <main class="max-w-4xl mx-auto px-6 py-20">
-    <h1 class="text-4xl font-serif font-bold mb-4 text-center">Photography by Anthony</h1>
-    <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+<body class="font-sans bg-black text-white dark:bg-black dark:text-white">
 
-    <p class="text-lg mb-6 text-center">
-      Looking for timeless, emotional wedding photography? Meet Anthony — a trusted partner and seasoned wedding photographer who works seamlessly alongside Eternal Moments to deliver the complete story of your day.
-    </p>
+  <!-- Navigation -->
+      <nav class="fixed w-full bg-white/90 dark:bg-gray-800 backdrop-blur-sm z-50 shadow-sm">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="flex justify-between h-20 items-center">
+                  <div class="flex-shrink-0 flex items-center">
+                      <span class="text-2xl font-serif font-bold text-purple-600 dark:text-purple-500" translate="no">Photographer Anthony</span>
+                  </div>
+                  <div class="hidden md:block">
+                      <div class="ml-10 flex items-center space-x-8">
+                          <a href="#home" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                          <a href="#portfolio" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+                          <a href="#about" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
+                          <a href="#contact" class="nav-link text-gray-600 dark:text-gray-00 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Contact</a>
+                          <a href="#faq" class="nav-link text-gray-600 dark:text-gray-00 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">FAQ</a>
+                          <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300">Get a Quote</a>
+                      </div>
+                  </div>
+                  <div class="-mr-2 flex items-center space-x-4">
+                      <button id="darkModeToggle" aria-label="Toggle dark mode" class="dark-mode-toggle p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                          <i class="fas fa-moon text-xl"></i>
+                      </button>
+                      <button type="button" aria-label="Open mobile menu" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none md:hidden">
+                          <i class="fas fa-bars text-xl"></i>
+                      </button>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Mobile menu -->
+          <div class="mobile-menu hidden md:hidden absolute w-full bg-white dark:bg-gray-700 shadow-lg z-50">
+              <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                  <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Home</a>
+                  <a href="#portfolio" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Portfolio</a>
+                  <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">About</a>
+                  <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Contact</a>
+                  <a href="#faq" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">FAQ</a>
+                  <a href="#contact" class="block px-6 py-3 rounded-full text-base font-medium text-white bg-purple-600 hover:bg-purple-700 dark:bg-purple-600 hover:bg-purple-700 transition duration-300 text-center">Get a Quote</a>
+              </div>
+          </div>
+      </nav>
 
-    <div class="mb-10">
-      <img src="img/anthony.jpg" alt="Photographer Anthony at work" class="rounded-lg shadow-lg mx-auto w-full max-w-md">
+  <!-- Hero Section -->
+  <header id="home" class="relative min-h-screen flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/30 dark:bg-black/70">
+      <div class="absolute inset-0 bg-gradient-to-br 
+        from-white/5 via-black/20 to-black/40 
+        dark:from-black/60 dark:via-black/70 dark:to-black/90 
+        mix-blend-overlay">
+      </div>  
     </div>
 
-    <h2 class="text-2xl font-bold mb-3">Why Add Anthony?</h2>
-    <ul class="list-disc list-inside mb-6 text-lg">
-      <li>Over 6 years of wedding photography experience</li>
-      <li>Natural, documentary-style approach</li>
-      <li>Stunning portraits and candid emotional moments</li>
-      <li>Professional editing and high-resolution delivery</li>
-    </ul>
+    <!-- Container Wrap -->
+    <div class="relative z-10 w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 dark:text-white mb-6 leading-tight" translate="no">
+          Timeless Photography for Your Unforgettable Day
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-900 dark:text-white mb-10 max-w-3xl mx-auto">
+          Capturing stunning wedding moments with heart, light, and precision — anywhere your love takes you.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#portfolio" class="px-8 bg-black/50 py-4 hover:bg-purple-600 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
+            See My Work
+          </a>
+          <a href="#contact" class="px-8 bg-black/50 py-4 hover:bg-purple-600 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
 
-    <h2 class="text-2xl font-bold mb-3">Bundle & Save</h2>
-    <p class="mb-6 text-lg">
-      Add photography to <strong>any video package</strong> and receive a <span class="text-purple-600 font-semibold">20% discount</span> on both services. One team, one vision — your story, beautifully captured in motion and stills.
-    </p>
-
-    <div class="text-center">
-      <a href="#contact" class="inline-block bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full text-lg font-medium transition duration-300">
-        Request Anthony as Your Photographer
+    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#portfolio" class="text-white" aria-label="Jump to Portfolio section">
+        <span class="sr-only">Portfolio</span>
+        <i class="fas fa-chevron-down text-2xl"></i>
       </a>
     </div>
+  </header>
 
-    <div class="text-center mt-8">
-      <a href="index.html" class="text-purple-500 hover:underline">← Back to Home</a>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Photography Portfolio</h2>
+      <div class="w-24 h-1 bg-purple-600 mx-auto mb-8"></div>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+        Candid moments. Artistic composition. Timeless emotion. Here’s a glimpse into the stories I’ve told through stills.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <img src="img/photo1.webp" alt="Bride and groom holding hands" class="rounded-lg shadow-md">
+        <img src="img/photo2.webp" alt="Wedding ceremony outdoor shot" class="rounded-lg shadow-md">
+        <img src="img/photo3.webp" alt="Couple portrait" class="rounded-lg shadow-md">
+        <img src="img/photo4.webp" alt="First dance" class="rounded-lg shadow-md">
+        <img src="img/photo5.webp" alt="Candid laughter moment" class="rounded-lg shadow-md">
+        <img src="img/photo6.webp" alt="Bridal preparation shot" class="rounded-lg shadow-md">
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- About Anthony -->
+  <section id="about" class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Image -->
+        <div>
+          <img src="img/anthony-profile.webp" alt="Photographer Anthony in action" class="rounded-xl shadow-lg">
+        </div>
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-3xl font-serif font-bold mb-4">Meet Anthony</h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            I’m Anthony — a wedding photographer driven by storytelling, light, and the unique bond each couple shares. I believe your day deserves more than posed photos — it deserves emotion, energy, and beauty frozen in time.
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            With over 6 years of experience, I bring calm confidence, an eye for details, and a genuine love for human connection. I work unobtrusively, letting real moments unfold while capturing everything as it happens.
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300">
+            Whether you’re eloping in the mountains or dancing in a ballroom, I’d love to help you preserve it forever.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photography Packages -->
+  <section id="packages" class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Wedding Photography Packages</h2>
+      <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+        Clear, simple pricing — with stunning results. Bundle with Josiah’s video packages and save 20%.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <!-- Package 1 -->
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md p-8 hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-4">Essential Photography</h3>
+          <div class="text-4xl font-bold text-purple-600 mb-6">600 zł</div>
+          <ul class="space-y-4 mb-6">
+            <li>Up to 4 hours of coverage</li>
+            <li>150+ edited images</li>
+            <li>Online gallery delivery</li>
+          </ul>
+          <a href="#contact" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-full font-medium transition duration-300">
+            Book Photography
+          </a>
+          <p class="mt-4 text-sm text-center text-gray-500 dark:text-gray-400">+ Add video & save 20%</p>
+        </div>
+
+        <!-- Package 2 -->
+        <div class="bg-white dark:bg-gray-800 border-2 border-purple-600 dark:border-purple-400 rounded-xl shadow-lg p-8 -translate-y-2 transition">
+          <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">
+            Most Popular
+          </div>
+          <h3 class="text-xl font-bold mb-4">Full Day Coverage</h3>
+          <div class="text-4xl font-bold text-purple-600 mb-6">800 zł</div>
+          <ul class="space-y-4 mb-6">
+            <li>Up to 8 hours of coverage</li>
+            <li>300+ edited images</li>
+            <li>Pre-wedding call</li>
+            <li>Private online gallery + USB delivery</li>
+          </ul>
+          <a href="#contact" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-full font-medium transition duration-300">
+            Book Photography
+          </a>
+          <p class="mt-4 text-sm text-center text-gray-500 dark:text-gray-400">+ Bundle with video for 1600 zł total</p>
+        </div>
+
+        <!-- Package 3 -->
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md p-8 hover:shadow-xl transition">
+          <h3 class="text-xl font-bold mb-4">Custom Experience</h3>
+          <div class="text-4xl font-bold text-purple-600 mb-6">Contact</div>
+          <ul class="space-y-4 mb-6">
+            <li>Extended coverage or travel</li>
+            <li>Engagement shoot or albums</li>
+            <li>Custom editing preferences</li>
+          </ul>
+          <a href="#contact" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-full font-medium transition duration-300">
+            Start Your Custom Quote
+          </a>
+          <p class="mt-4 text-sm text-center text-gray-500 dark:text-gray-400">Pair with video for full-story coverage</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-serif font-bold mb-4">Let’s Chat</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">I’d love to hear about your plans and how we can capture them beautifully.</p>
+
+      <form action="https://formsubmit.co/youremail@example.com" method="POST" class="space-y-6 text-left">
+        <!-- Redirect to Thank You -->
+        <input type="hidden" name="_next" value="thankyou.html" />
+        <input type="hidden" name="_captcha" value="false" />
+
+        <div>
+          <label for="name" class="block mb-1 font-medium">Name</label>
+          <input type="text" name="name" id="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+        </div>
+
+        <div>
+          <label for="email" class="block mb-1 font-medium">Email</label>
+          <input type="email" name="email" id="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+        </div>
+
+        <div>
+          <label for="message" class="block mb-1 font-medium">Message</label>
+          <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-md transition duration-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Here are answers to the most common questions from couples.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+          <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+            <span class="text-lg font-medium text-gray-900 dark:text-gray-100">What’s your photography style?</span>
+            <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+            <p>My approach is documentary with a touch of editorial — I focus on authentic moments and natural light, while still guiding you for portraits that feel honest and cinematic.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+          <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+            <span class="text-lg font-medium text-gray-900 dark:text-gray-100">Do you work well with videographers?</span>
+            <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+            <p>Yes! Josiah and I have worked dozens of weddings together. Our timing, communication, and teamwork ensure you get the best of both without stepping on toes.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+          <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+            <span class="text-lg font-medium text-gray-900 dark:text-gray-100">When will we receive our photos?</span>
+            <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+            <p>Sneak peeks in a few days. Full galleries are ready in 3–4 weeks during peak season — always edited with love.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
+          <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
+            <span class="text-lg font-medium text-gray-900 dark:text-gray-100">Can we customize a bundle with Josiah?</span>
+            <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
+            <p>Absolutely! We’ll craft a plan that fits your vision and budget. Ask us about the 20% bundle offer!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 text-center text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p>&copy; 2025 Josiah & Anthony – Wedding Visuals. All rights reserved.</p>
+      
+      <div class="mt-4 space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="josiah.html" class="hover:underline">Films</a>
+        <a href="anthony.html" class="hover:underline">Photography</a>
+        <a href="bundle.html" class="hover:underline">Bundles</a>
+        <a href="privacy.html" class="hover:underline">Privacy</a>
+        <a href="cookies.html" class="hover:underline">Cookies</a>
+        <a href="terms.html" class="hover:underline">Terms</a>
+      </div>
+    </div>
+  </footer>
 
   <script defer src="script.js"></script>
+
 </body>
 </html>
