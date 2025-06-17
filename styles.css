@@ -1,4 +1,28 @@
-/* Smooth video hover */
+/* --------------------------------------
+   ⚙️ General Animations & Effects
+-----------------------------------------*/
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.play-btn:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* --------------------------------------
+   🎥 Video Preview Hover
+-----------------------------------------*/
 .video-preview {
   transition: all 0.3s ease;
 }
@@ -7,36 +31,59 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Hero overlay style */
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
+/* --------------------------------------
+   🎯 Scrollbar Customization
+-----------------------------------------*/
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 ::-webkit-scrollbar-thumb {
   background: #c084fc;
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: #9333ea; }
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
 
-/* Dark mode styles */
+/* Scrollbar hiding utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --------------------------------------
+   🌙 Dark Mode Global Tweaks
+-----------------------------------------*/
 .dark body {
   background-color: #111827;
   color: #f3f4f6;
 }
 
-/* Play-button pulse animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-.play-btn:hover {
-  animation: pulse 1.5s infinite;
+/* --------------------------------------
+   🎯 Button Tab Scroll (horizontal)
+-----------------------------------------*/
+#packageTabsWrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  white-space: nowrap;
 }
 
+#packageTabs .tab-btn {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------
+   🌐 Accessibility Utility
+-----------------------------------------*/
 .sr-only {
   position: absolute;
   width: 1px;
@@ -49,6 +96,13 @@
   border: 0;
 }
 
+/* --------------------------------------
+   🖼️ Hero Overlay (Tailwind + Fallback)
+-----------------------------------------*/
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .hero-overlay {
   @apply absolute inset-0 bg-gradient-to-br 
           from-black/50 via-black/30 to-transparent 
@@ -56,47 +110,20 @@
           transition-all duration-500;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out both;
-}
-
-/* Hide native scrollbar for scrollable tab bar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-
-/* Smooth horizontal scroll behavior */
-#packageTabs {
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-/* Ensure buttons align and snap cleanly */
-#packageTabs .tab-btn {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-}
-
+/* --------------------------------------
+   🚫 Overflow Lock
+-----------------------------------------*/
 html, body {
   overflow-x: hidden;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+#packageTabsWrapper {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
 }
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+#packageTabs .tab-btn {
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
