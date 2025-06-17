@@ -167,10 +167,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentIndex += perBatch;
 
+    // Move the loadMoreWrapper to the end of the grid
+    const wrapperEl = document.getElementById('loadMoreWrapper');
+    if (wrapperEl) {
+      grid.appendChild(wrapperEl);
+    }
+
     if (currentIndex >= portraits.length) {
       loadBtn.style.display = 'none';
       noMoreMsg?.classList.remove('hidden');
     }
+
   }
 
   if (grid && loadBtn) {

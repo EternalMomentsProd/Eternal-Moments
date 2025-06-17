@@ -105,12 +105,14 @@
       <!-- JS will insert images -->
     </div>
 
-    <div id="loadMoreWrapper" class="mt-10 text-center">
+    <!-- This goes inside the portfolioGrid container -->
+    <div id="loadMoreWrapper"
+        class="col-span-full md:col-span-1 flex justify-center md:justify-start mt-4">
       <button id="loadMoreBtn"
               class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-medium transition duration-300">
         Load More Photos
       </button>
-      <p id="noMoreMsg" class="text-gray-500 dark:text-gray-400 mt-4 hidden">
+      <p id="noMoreMsg" class="text-gray-500 dark:text-gray-400 mt-4 hidden ml-4 self-center">
         🎉 You’ve reached the end of the gallery.
       </p>
     </div>
