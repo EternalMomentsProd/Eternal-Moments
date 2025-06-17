@@ -130,34 +130,46 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Wedding 1 -->
-                <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
+
+                <!-- Wedding 1 - FULLY CLICKABLE -->
+                <div onclick="openModal('Paul & Precious Wedding')"
+                    class="video-preview group cursor-pointer relative rounded-xl overflow-hidden shadow-lg bg-gray-100 transition duration-300 hover:scale-[1.01]">
+
                     <img src="images/paul-precious.webp" 
-                          alt="Paul & Precious Wedding" width="1280" height="720" loading="lazy">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <button class="play-btn relative" aria-label="Play video: Paul & Precious" onclick="openModal('Paul & Precious Wedding')">
-                            <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                                <i class="fas fa-play text-3xl text-white"></i>
-                            </div>
-                        </button>
+                        alt="Paul & Precious Wedding" width="1280" height="720" loading="lazy" 
+                        class="w-full h-auto" />
+
+                    <!-- Overlay Play Icon -->
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-3xl text-white"></i>
+                        </div>
                     </div>
+
+                    <!-- Caption -->
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent dark:from-black/70">
                         <h3 class="text-2xl font-serif font-bold mb-1">Paul & Precious</h3>
                         <p class="text-purple-300">Krakow Wedding • June 2025</p>
                     </div>
                 </div>
+
                 
-                <!-- Wedding 2 -->
-                <div class="video-preview relative rounded-xl overflow-hidden shadow-lg bg-gray-100">
+                <!-- Wedding 2 - FULLY CLICKABLE -->
+                <div onclick="openModal('Shelesea & Herlander')"
+                    class="video-preview group cursor-pointer relative rounded-xl overflow-hidden shadow-lg bg-gray-100 transition duration-300 hover:scale-[1.01]">
+
                     <img src="images/shelsea-herlander.webp" 
-                         alt="Shelesea & Herlander" width="1280" height="720" loading="lazy">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <button class="play-btn relative" aria-label="Play video: Shelesea & Herlander" onclick="openModal('Shelesea & Herlander')">
-                            <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                                <i class="fas fa-play text-3xl text-white"></i>
-                            </div>
-                        </button>
+                        alt="Shelesea & Herlander" width="1280" height="720" loading="lazy"
+                        class="w-full h-auto" />
+
+                    <!-- Overlay Play Icon -->
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-3xl text-white"></i>
+                        </div>
                     </div>
+
+                    <!-- Caption -->
                     <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent dark:from-black/70">
                         <h3 class="text-2xl font-serif font-bold mb-1">Shelesea & Herlander</h3>
                         <p class="text-purple-300">Krakow Wedding • June 2024</p>
