@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Video modal
   const videos = {
-    'paul-precious-video': 'https://www.youtube.com/embed/s6GoCyAeIEk',
+    'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY',
     'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I',
   };
 
