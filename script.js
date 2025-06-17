@@ -113,6 +113,39 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearSpan) {
     yearSpan.innerHTML = `&copy; ${new Date().getFullYear()}`;
   }
+
+  // 💡 Portfolio "Load More" Logic
+  const portraits = Array.from({ length: 15 }, (_, i) => ({
+    src: `images/portraits/Portrait_${i + 1}.webp`,
+    alt: `Portrait ${i + 1}`,
+  }));
+
+  const perBatch = 5;
+  let currentIndex = 0;
+
+  const grid = document.getElementById('portfolioGrid');
+  const loadBtn = document.getElementById('loadMoreBtn');
+
+  function renderBatch() {
+    const nextBatch = portraits.slice(currentIndex, currentIndex + perBatch);
+    nextBatch.forEach(img => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = `
+        <img src="${img.src}" alt="${img.alt}" 
+             class="w-full rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300">
+      `;
+      grid.appendChild(wrapper);
+    });
+    currentIndex += perBatch;
+    if (currentIndex >= portraits.length && loadBtn) {
+      loadBtn.style.display = 'none';
+    }
+  }
+
+  if (grid && loadBtn) {
+    loadBtn.addEventListener('click', renderBatch);
+    renderBatch();
+  }
 });
 
 // Nav link highlight on scroll
