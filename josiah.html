@@ -623,11 +623,10 @@
             </div>
     </footer>
 
-
     <!-- Video Modal -->
     <div id="videoModal" role="dialog" aria-modal="true" aria-label="Video Preview Modal"
         class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center">
-    
+
     <div class="relative w-full mx-4" style="max-width: 90vw; max-height: 90vh">
         <button onclick="closeModal()" class="absolute -top-12 -right-12 bg-white rounded-full w-10 h-10 flex items-center justify-center z-50 hover:bg-gray-100 transition duration-300 md:-top-4 md:-right-4">
         <i class="fas fa-times text-gray-900 text-xl" aria-hidden="true"></i>
@@ -635,10 +634,14 @@
         </button>
 
         <div class="aspect-w-16 aspect-h-9 w-full relative" style="padding-bottom: 56.25%">
-        <iframe id="modalVideo" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+        <iframe id="modalVideo" class="absolute top-0 left-0 w-full h-full" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen></iframe>
         </div>
     </div>
     </div>
+
 
 
     <!-- Success Modal (optional) -->
