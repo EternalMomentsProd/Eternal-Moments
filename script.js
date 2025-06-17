@@ -10,6 +10,12 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
+// Video modal
+const videos = {
+  'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY?autoplay=1',
+  'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I?autoplay=1',
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile menu toggle
   document.querySelector('.mobile-menu-button')?.addEventListener('click', () => {
@@ -37,12 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
       icon?.classList.toggle('fa-minus');
     });
   });
-
-  // Video modal
-  const videos = {
-    'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY',
-    'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I',
-  };
 
   document.getElementById('videoModal')?.addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
