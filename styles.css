@@ -65,11 +65,26 @@
   animation: fadeIn 0.6s ease-out both;
 }
 
-/* Optional: hide scrollbar for a cleaner look */
+/* Hide native scrollbar for scrollable tab bar */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Smooth horizontal scroll behavior */
+#packageTabs {
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Ensure buttons align and snap cleanly */
+#packageTabs .tab-btn {
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
