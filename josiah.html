@@ -77,6 +77,10 @@
 
     <!-- Hero Section -->
     <header id="home" class="relative min-h-screen flex items-center justify-center">
+        <video autoplay muted loop playsinline class="absolute inset-0 object-cover w-full h-full z-0">
+            <source src="preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="absolute inset-0 bg-black/30 dark:bg-black/70">
              <div class="absolute inset-0 bg-gradient-to-br 
                 from-white/5 via-black/20 to-black/40 
@@ -131,7 +135,7 @@
                     <img src="images/paul-precious.webp" 
                           alt="Paul & Precious Wedding" width="1280" height="720" loading="lazy">
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <button class="play-btn relative" aria-label="Play video: Paul & Precious" onclick="openModal('paul-precious-video')">
+                        <button class="play-btn relative" aria-label="Play video: Paul & Precious" onclick="openModal('Paul & Precious Wedding')">
                             <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
                                 <i class="fas fa-play text-3xl text-white"></i>
                             </div>
