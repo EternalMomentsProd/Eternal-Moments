@@ -16,6 +16,9 @@ const videos = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderPortfolio('portraits');
+  renderPackages('portraits');
+
   // Mobile Menu Toggle
   document.querySelector('.mobile-menu-button')?.addEventListener('click', () => {
     document.querySelector('.mobile-menu')?.classList.toggle('hidden');
@@ -185,3 +188,76 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBatch();
   }
 });
+
+const topics = {
+  portraits: {
+    images: [
+      'images/portraits/Portrait_1.webp',
+      'images/portraits/Portrait_2.webp',
+      'images/portraits/Portrait_3.webp',
+      'images/portraits/Portrait_4.webp',
+      'images/portraits/Portrait_5.webp',
+    ],
+    packages: [
+      {
+        title: 'Mini Portrait Session – 200 zł',
+        details: ['40 mins, outdoor or indoor', '15 professionally edited photos']
+      },
+      {
+        title: 'Standard Portrait – 300 zł',
+        details: ['1 hour session', '30 edited photos', 'Outfit changes allowed']
+      },
+      {
+        title: 'Deluxe Portrait Experience – 500 zł',
+        details: ['2 hours, multiple locations', '50+ edited photos + USB drive']
+      }
+    ]
+  },
+
+};
+
+function renderPortfolio(topicKey) {
+  const portfolio = document.getElementById('topicPortfolio');
+  portfolio.innerHTML = ''; // clear previous
+
+  topics[topicKey]?.images.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Portfolio ${i + 1}`;
+    img.className = 'rounded-lg shadow-md fade-in border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
+    img.loading = 'lazy';
+    img.width = 1280;
+    img.height = 1706;
+    portfolio.appendChild(img);
+  });
+}
+
+function renderPackages(topicKey) {
+  const packageGrid = document.getElementById('topicPackages');
+  packageGrid.innerHTML = ''; // clear previous
+
+  topics[topicKey]?.packages.forEach(pkg => {
+    const card = document.createElement('div');
+    card.className = 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg shadow-md text-left max-w-sm mx-auto sm:mx-0 fade-in';
+
+    const title = `<h3 class="text-xl font-semibold text-purple-600 mb-2">${pkg.title}</h3>`;
+    const details = pkg.details.map(p => `<p class="text-gray-700 dark:text-gray-300 mb-1">${p}</p>`).join('');
+
+    card.innerHTML = title + details;
+    packageGrid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('#packageTabs .tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const topicKey = btn.textContent.trim().toLowerCase().match(/[a-z]+/g).join('');
+    renderPortfolio(topicKey);
+    renderPackages(topicKey);
+
+    // Update active class
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+
