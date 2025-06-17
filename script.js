@@ -152,13 +152,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderBatch() {
     const nextBatch = portraits.slice(currentIndex, currentIndex + perBatch);
+
     nextBatch.forEach(img => {
       const wrapper = document.createElement('div');
-      wrapper.className = 'w-full'; // make it behave properly in the grid
+      wrapper.className = 'w-full'; // ✅ Ensures grid respects spacing
+
       wrapper.innerHTML = `
         <img src="${img.src}" alt="${img.alt}"
-            class="fade-in w-full rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300">
+            class="fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300">
       `;
+
       grid.appendChild(wrapper);
     });
 
