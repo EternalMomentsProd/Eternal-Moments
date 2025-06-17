@@ -10,25 +10,23 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// Video modal
 const videos = {
   'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY?autoplay=1',
   'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I?autoplay=1',
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Mobile menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  // Mobile Menu Toggle
   document.querySelector('.mobile-menu-button')?.addEventListener('click', () => {
     document.querySelector('.mobile-menu')?.classList.toggle('hidden');
   });
 
-  // FAQ accordion functionality
+  // FAQ Toggle Logic
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const ans = btn.nextElementSibling;
       const icon = btn.querySelector('i');
 
-      // Close others
       document.querySelectorAll('.faq-answer').forEach(a => {
         if (a !== ans && !a.classList.contains('hidden')) {
           a.classList.add('hidden');
@@ -37,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Toggle current
       ans.classList.toggle('hidden');
       icon?.classList.toggle('fa-plus');
       icon?.classList.toggle('fa-minus');
@@ -48,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target === e.currentTarget) closeModal();
   });
 
-  // Contact form logic with safety check
+  // Contact Form Spinner
   const form = document.getElementById('contactForm');
   const btn = form?.querySelector('button[type="submit"]');
   const txt = btn?.querySelector('.submit-text');
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Scroll behavior + highlight
+  // Smooth Scroll Navigation
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -85,16 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Dark Mode Toggle with localStorage
+  // Dark Mode Toggle
   const toggle = document.getElementById("darkModeToggle");
   const html = document.documentElement;
 
   if (localStorage.getItem("theme") === "dark") {
     html.classList.add("dark");
-  } else if (
-    !localStorage.getItem("theme") &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
+  } else if (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     html.classList.add("dark");
   }
 
@@ -103,66 +97,31 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
   });
 
-  // ESC closes video modal
+  // ESC Key closes modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
 
-  // Set copyright
+  // Copyright year
   const yearSpan = document.getElementById('copyright-year');
   if (yearSpan) {
     yearSpan.innerHTML = `&copy; ${new Date().getFullYear()}`;
   }
 
-  // 💡 Portfolio "Load More" Logic
-  const portraits = Array.from({ length: 15 }, (_, i) => ({
-    src: `images/portraits/Portrait_${i + 1}.webp`,
-    alt: `Portrait ${i + 1}`,
-  }));
-
-  const perBatch = 5;
-  let currentIndex = 0;
-
-  const grid = document.getElementById('portfolioGrid');
-  const loadBtn = document.getElementById('loadMoreBtn');
-
-  function renderBatch() {
-    const nextBatch = portraits.slice(currentIndex, currentIndex + perBatch);
-    nextBatch.forEach(img => {
-      const wrapper = document.createElement('div');
-      wrapper.innerHTML = `
-        <img src="${img.src}" alt="${img.alt}" 
-             class="w-full rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300">
-      `;
-      grid.appendChild(wrapper);
-    });
-    currentIndex += perBatch;
-    if (currentIndex >= portraits.length && loadBtn) {
-      loadBtn.style.display = 'none';
-    }
-  }
-
-  if (grid && loadBtn) {
-    loadBtn.addEventListener('click', renderBatch);
-    renderBatch();
-  }
-});
-
-// Nav link highlight on scroll
-document.addEventListener("DOMContentLoaded", () => {
+  // Highlight nav on scroll
   const sections = document.querySelectorAll("section[id], header[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
   function activateLinkOnScroll() {
     const scrollY = window.scrollY;
 
-    sections.forEach((section) => {
+    sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute("id");
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
+        navLinks.forEach(link => {
           link.classList.remove("text-purple-600", "bg-purple-50");
           link.classList.add("text-gray-600");
 
@@ -177,4 +136,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", activateLinkOnScroll);
   window.addEventListener("load", activateLinkOnScroll);
+
+  // Portfolio: Load More with Fade-in
+  const portraits = Array.from({ length: 15 }, (_, i) => ({
+    src: `images/portraits/Portrait_${i + 1}.webp`,
+    alt: `Portrait ${i + 1}`,
+  }));
+
+  const perBatch = 5;
+  let currentIndex = 0;
+
+  const grid = document.getElementById('portfolioGrid');
+  const loadBtn = document.getElementById('loadMoreBtn');
+  const noMoreMsg = document.getElementById('noMoreMsg');
+
+  function renderBatch() {
+    const nextBatch = portraits.slice(currentIndex, currentIndex + perBatch);
+    nextBatch.forEach(img => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = `
+        <img src="${img.src}" alt="${img.alt}"
+             class="fade-in w-full rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300">
+      `;
+      grid.appendChild(wrapper);
+    });
+
+    currentIndex += perBatch;
+
+    if (currentIndex >= portraits.length) {
+      loadBtn.style.display = 'none';
+      noMoreMsg?.classList.remove('hidden');
+    }
+  }
+
+  if (grid && loadBtn) {
+    loadBtn.addEventListener('click', renderBatch);
+    renderBatch();
+  }
 });
