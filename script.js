@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loadMoreBtn = document.createElement('button');
   loadMoreBtn.id = 'loadMoreBtn';
-  loadMoreBtn.className = 'text-white text-lg font-semibold';
+  loadMoreBtn.className = 'w-full h-full flex items-center justify-center text-white text-lg font-semibold';
   loadMoreBtn.textContent = 'Load More Photos';
   loadMoreWrapper.appendChild(loadMoreBtn);
 
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   noMoreMsg.id = 'noMoreMsg';
   noMoreMsg.className = 'text-center text-gray-500 dark:text-gray-400 mt-4 hidden';
   noMoreMsg.textContent = '🎉 You’ve reached the end of the gallery.';
+
 
   function renderNextBatch() {
     const nextBatch = images.slice(currentIndex, currentIndex + perBatch);
