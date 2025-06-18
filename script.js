@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Create Load More wrapper & button
   const loadMoreWrapper = document.createElement('div');
   loadMoreWrapper.id = 'loadMoreWrapper';
-  loadMoreWrapper.className = 'w-full aspect-[3/4] flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-purple-600 hover:bg-purple-700 transition duration-300 mt-6';
+  loadMoreWrapper.className = 'w-full aspect-[2/3] flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-purple-600 hover:bg-purple-700 transition duration-300 mt-6';
 
   const loadMoreBtn = document.createElement('button');
   loadMoreBtn.id = 'loadMoreBtn';
