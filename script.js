@@ -46,56 +46,62 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function renderPortfolio(topicKey) {
-    const portfolio = document.getElementById('topicPortfolio');
-    portfolio.innerHTML = '';
-    const images = topics[topicKey]?.images || [];
-    const perBatch = 5;
-    let currentIndex = 0;
+  const portfolio = document.getElementById('topicPortfolio');
+  portfolio.innerHTML = '';
+  const images = topics[topicKey]?.images || [];
+  const perBatch = 5;
+  let currentIndex = 0;
 
-    const loadMoreWrapper = document.createElement('div');
-    loadMoreWrapper.id = 'loadMoreWrapper';
-    loadMoreWrapper.className = 'w-full aspect-[3/4] flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-purple-600 hover:bg-purple-700 transition duration-300 mt-6';
+  // Create Load More wrapper & button
+  const loadMoreWrapper = document.createElement('div');
+  loadMoreWrapper.id = 'loadMoreWrapper';
+  loadMoreWrapper.className = 'w-full aspect-[3/4] flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-purple-600 hover:bg-purple-700 transition duration-300 mt-6';
 
-    const loadMoreBtn = document.createElement('button');
-    loadMoreBtn.id = 'loadMoreBtn';
-    loadMoreBtn.className = 'text-white text-lg font-semibold';
-    loadMoreBtn.textContent = 'Load More Photos';
-    loadMoreWrapper.appendChild(loadMoreBtn);
+  const loadMoreBtn = document.createElement('button');
+  loadMoreBtn.id = 'loadMoreBtn';
+  loadMoreBtn.className = 'text-white text-lg font-semibold';
+  loadMoreBtn.textContent = 'Load More Photos';
+  loadMoreWrapper.appendChild(loadMoreBtn);
 
-    const noMoreMsg = document.createElement('p');
-    noMoreMsg.id = 'noMoreMsg';
-    noMoreMsg.className = 'text-center text-gray-500 dark:text-gray-400 mt-4 hidden';
-    noMoreMsg.textContent = '🎉 You’ve reached the end of the gallery.';
+  const noMoreMsg = document.createElement('p');
+  noMoreMsg.id = 'noMoreMsg';
+  noMoreMsg.className = 'text-center text-gray-500 dark:text-gray-400 mt-4 hidden';
+  noMoreMsg.textContent = '🎉 You’ve reached the end of the gallery.';
 
-    function renderNextBatch() {
-      const nextBatch = images.slice(currentIndex, currentIndex + perBatch);
-      nextBatch.forEach((src, i) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `Portrait ${currentIndex + i + 1}`;
-        img.className = 'fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
-        img.loading = 'lazy';
-        img.width = 1280;
-        img.height = 1706;
-        portfolio.appendChild(img);
-      });
+  function renderNextBatch() {
+    const nextBatch = images.slice(currentIndex, currentIndex + perBatch);
 
-      currentIndex += perBatch;
+    nextBatch.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Portrait ${currentIndex + i + 1}`;
+      img.className = 'fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
+      img.loading = 'lazy';
+      img.width = 1280;
+      img.height = 1706;
 
-      if (currentIndex >= images.length) {
-        loadMoreBtn.remove();
-        noMoreMsg.classList.remove('hidden');
-      }
-    }
+      portfolio.appendChild(img);
+    });
 
-    loadMoreBtn.addEventListener('click', renderNextBatch);
-    renderNextBatch();
+    currentIndex += perBatch;
 
-    if (images.length > perBatch) {
-      portfolio.appendChild(loadMoreWrapper);
+    // Ensure the button is always last
+    portfolio.appendChild(loadMoreWrapper);
+
+    if (currentIndex >= images.length) {
+      loadMoreWrapper.remove();
       portfolio.appendChild(noMoreMsg);
+      noMoreMsg.classList.remove('hidden');
     }
   }
+
+  // Initial render
+  renderNextBatch();
+
+  // Button listener
+  loadMoreBtn.addEventListener('click', renderNextBatch);
+  }
+
 
   function renderPackages(topicKey) {
     const packageGrid = document.getElementById('topicPackages');
