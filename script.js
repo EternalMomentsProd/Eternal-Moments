@@ -110,13 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     topics[topicKey]?.packages.forEach((pkg, i) => {
       const isPopular = i === 1;
-      const card = document.createElement('div');
-      card.className = `relative bg-white dark:bg-gray-800 border ${
-        isPopular ? 'border-2 border-purple-600 dark:border-purple-400 shadow-lg -translate-y-2' : 'border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl'
-      } rounded-xl p-8 transition`;
 
+      const card = document.createElement('div');
+      card.className = `
+        relative bg-white dark:bg-gray-800
+        border ${isPopular ? 'border-2 border-purple-600 dark:border-purple-400 shadow-lg -translate-y-2' : 'border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl'}
+        rounded-xl p-8 transition
+        min-h-[28rem] flex flex-col justify-between
+      `.trim();
+
+      // Inner content (without Most Popular badge)
       card.innerHTML = `
-        ${isPopular ? `<div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">Most Popular</div>` : ''}
         <h3 class="text-xl font-bold mb-4">${pkg.title}</h3>
         <div class="text-4xl font-bold text-purple-600 mb-6">${pkg.price}</div>
         <ul class="space-y-4 mb-6">
@@ -127,9 +131,20 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
         <p class="mt-4 text-sm text-center text-gray-500 dark:text-gray-400">${pkg.note}</p>
       `;
+
+      // Add Most Popular badge outside the padded area
+      if (isPopular) {
+        const badge = document.createElement('div');
+        badge.className = 'absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg z-10';
+        badge.textContent = 'Most Popular';
+        card.appendChild(badge);
+      }
+
       packageGrid.appendChild(card);
     });
   }
+
+
 
   // Tab switching
   document.querySelectorAll('#packageTabs .tab-btn').forEach(btn => {
