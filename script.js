@@ -150,12 +150,25 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('#packageTabs .tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const topicKey = btn.textContent.trim().toLowerCase().match(/[a-z]+/g).join('');
+
       renderPortfolio(topicKey);
       renderPackages(topicKey);
+
+      // Scroll to the packages section
+      document.getElementById('packages')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Update active button styles
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      // Auto-scroll this button into view horizontally
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     });
   });
+
 
   // FAQ toggles
   document.querySelectorAll('.faq-question').forEach(btn => {
