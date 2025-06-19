@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           title: 'Deluxe Portrait Experience',
           price: '500 zł',
           features: ['2 hours, multiple locations', '50+ edited photos + USB drive', 'Custom background and lighting'],
-          button: 'Start Your Custom Quote',
+          button: 'Book Portraits',
           note: 'Perfect for portfolios or branding'
         }
       ]
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       renderPackages(topicKey);
 
       // Scroll to the packages section
-      document.getElementById('packages')?.scrollIntoView({
+      document.getElementById('portfolio')?.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
