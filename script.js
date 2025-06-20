@@ -288,8 +288,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.getElementById('closeBtn');
 
     // Button event listeners
-    nextBtn.addEventListener('click', showNextImage);
-    prevBtn.addEventListener('click', showPrevImage);
+    function animateImageChange(newIndex) {
+      modalImg.classList.add('transition-transform', 'duration-300');
+      modalImg.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        modalImg.src = currentImageList[newIndex];
+        modalImg.style.transform = 'translateX(-100%)';
+        setTimeout(() => {
+          modalImg.style.transform = 'translateX(0)';
+          currentImageIndex = newIndex;
+        }, 30);
+      }, 300);
+    }
+
+    function showNextImage() {
+      if (currentImageIndex < currentImageList.length - 1) {
+        animateImageChange(currentImageIndex + 1);
+      }
+    }
+
+    function showPrevImage() {
+      if (currentImageIndex > 0) {
+        animateImageChange(currentImageIndex - 1);
+      }
+    }
+
     closeBtn.addEventListener('click', closeImageModal);
 
     // Keyboard navigation
