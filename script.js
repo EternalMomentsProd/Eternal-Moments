@@ -1,3 +1,4 @@
+
 const videos = {
   'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY?autoplay=1',
   'Shelesea & Herlander': 'https://www.youtube.com/embed/81rCxFTbD4I?autoplay=1',
@@ -23,23 +24,219 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           title: 'Mini Portrait Session',
           price: '200 zł',
-          features: ['40 mins, outdoor or indoor', '15 professionally edited photos', 'Online delivery'],
+          features: ['40 mins, outdoor or indoor', '15 professionally edited photos'],
           button: 'Book Portraits',
           note: 'Includes online preview gallery'
         },
         {
           title: 'Standard Portrait',
           price: '300 zł',
-          features: ['1 hour session', '30 edited photos', 'Outfit changes allowed'],
+          features: ['1 hour session', '30 edited photos', 'Outfit changes allowed'],
           button: 'Book Portraits',
           note: 'USB delivery available'
         },
         {
           title: 'Deluxe Portrait Experience',
           price: '500 zł',
-          features: ['2 hours, multiple locations', '50+ edited photos + USB drive', 'Custom background and lighting'],
+          features: ['2 hours, multiple locations', '50+ edited photos', 'Custom background and lighting'],
           button: 'Book Portraits',
           note: 'Perfect for portfolios or branding'
+        }
+      ]
+    },
+    
+    concerts: {
+      images: [], // add your concert images path if available
+      packages: [
+        {
+          title: 'Mini Gig',
+          price: '100 zł',
+          features: ['30 mins coverage', '20 edited photos'],
+          button: 'Book Concert',
+          note: ''
+        },
+        {
+          title: 'Standard Concert',
+          price: '400 zł',
+          features: ['Full set (1–2 hrs)', '50+ photos, crowd + artist'],
+          button: 'Book Concert',
+          note: ''
+        },
+        {
+          title: 'Tour Premium',
+          price: '1000 zł',
+          features: ['Full event coverage', '100+ photos'],
+          button: 'Book Concert',
+          note: ''
+        }
+      ]
+    },
+
+    sports: {
+      images: [], // add sports-related images
+      packages: [
+        {
+          title: 'Basic Game',
+          price: '150 zł',
+          features: ['Half‑match coverage', '10–15 action shots'],
+          button: 'Book Sports',
+          note: ''
+        },
+        {
+          title: 'Full Game',
+          price: '300 zł',
+          features: ['Full match coverage', '30+ images, team photo'],
+          button: 'Book Sports',
+          note: ''
+        },
+        {
+          title: 'Tournament Day',
+          price: '800 zł',
+          features: ['Up to 6 hrs', '80+ images, teams + details'],
+          button: 'Book Sports',
+          note: ''
+        }
+      ]
+    },
+
+    camps: {
+      images: [], // add camp-themed images
+      packages: [
+        {
+          title: 'Quick Visit',
+          price: '150 zł',
+          features: ['2 hrs, candid & group', '30 edited shots'],
+          button: 'Book Camp',
+          note: ''
+        },
+        {
+          title: 'Half‑Day Camp',
+          price: '400 zł',
+          features: ['4 hrs, activities + portraits', '70+ images'],
+          button: 'Book Camp',
+          note: ''
+        },
+        {
+          title: 'Camp Full Story',
+          price: '2500 zł',
+          features: ['Full/multi‑day coverage', '200+ photos'],
+          button: 'Book Camp',
+          note: ''
+        }
+      ]
+    },
+
+    weddings: {
+      images: [], // add wedding images
+      packages: [
+        {
+          title: 'Ceremony Only',
+          price: '1000 zł',
+          features: ['4 hrs, ceremony + groups', '100 photos + USB drive'],
+          button: 'Book Wedding',
+          note: ''
+        },
+        {
+          title: 'Full Day',
+          price: '1800 zł',
+          features: ['8 hrs, all‑day story', '200 photos + USB drive'],
+          button: 'Book Wedding',
+          note: ''
+        },
+        {
+          title: 'Deluxe Wedding',
+          price: '2500 zł',
+          features: ['10 hrs, full coverage', '300 photos + USB drive'],
+          button: 'Book Wedding',
+          note: ''
+        },
+        {
+          title: 'Pre‑Wedding / Engagement Mini Session',
+          price: '400 zł',
+          features: ['1 hr, 20 photos + USB drive'],
+          button: 'Book Engagement',
+          note: ''
+        }
+      ]
+    },
+
+    engagements: {
+      images: [], // add engagement images
+      packages: [
+        {
+          title: 'Pre‑Wedding / Engagement Mini Session',
+          price: '400 zł',
+          features: ['1 hr, 20 photos + USB drive'],
+          button: 'Book Engagement',
+          note: ''
+        },
+        {
+          title: 'Pre‑Wedding / Engagement Mini Session',
+          price: '400 zł',
+          features: ['1 hr, 20 photos + USB drive'],
+          button: 'Book Engagement',
+          note: ''
+        },
+        {
+          title: 'Pre‑Wedding / Engagement Mini Session',
+          price: '400 zł',
+          features: ['1 hr, 20 photos + USB drive'],
+          button: 'Book Engagement',
+          note: ''
+        }
+      ]
+    },
+
+    school: {
+      images: [], // add school/graduation images
+      packages: [
+        {
+          title: 'Grad Portrait',
+          price: '150 zł',
+          features: ['30 mins, 15 edited shots'],
+          button: 'Book Graduation',
+          note: ''
+        },
+        {
+          title: 'Prom Night',
+          price: '400 zł',
+          features: ['2–3 hrs, red carpet & group', '100+ pictures + USB drive'],
+          button: 'Book Graduation',
+          note: ''
+        },
+        {
+          title: 'School Day Event',
+          price: '1000 zł',
+          features: ['6 hrs, group photos & activities', '150+ images + USB drive'],
+          button: 'Book Graduation',
+          note: ''
+        }
+      ]
+    },
+
+    family: {
+      images: [], // add family/kids images
+      packages: [
+        {
+          title: 'Mini Family Shoot',
+          price: '250 zł',
+          features: ['30 mins, 20 photos'],
+          button: 'Book Family',
+          note: ''
+        },
+        {
+          title: 'Full Family',
+          price: '500 zł',
+          features: ['80 mins, 30 photos + USB drive', 'Outdoor or at home'],
+          button: 'Book Family',
+          note: ''
+        },
+        {
+          title: 'Birthday Package',
+          price: '700 zł',
+          features: ['2 hrs, 50+ photos + USB drive'],
+          button: 'Book Family',
+          note: ''
         }
       ]
     }
