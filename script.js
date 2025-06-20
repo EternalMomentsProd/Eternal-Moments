@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     weddings: {
-      images: Array.from({ length: 15 }, (_, i) => `images/wedding/Wedding_${i + 1}.webp`),
+      images: Array.from({ length: 12 }, (_, i) => `images/wedding/Wedding_${i + 1}.webp`),
       packages: [
         {
           title: 'Ceremony Only',
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Create Load More wrapper & button
   const loadMoreWrapper = document.createElement('div');
   loadMoreWrapper.id = 'loadMoreWrapper';
-  loadMoreWrapper.className = 'w-full aspect-[2/3] flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-purple-600 hover:bg-purple-700 transition duration-300 mt-6';
+  loadMoreWrapper.className = 'w-full flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-gray-900 hover:bg-purple-700 transition duration-300 mt-6';
 
   const loadMoreBtn = document.createElement('button');
   loadMoreBtn.id = 'loadMoreBtn';
@@ -272,11 +272,13 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBatch.forEach((src, i) => {
       const img = document.createElement('img');
       img.src = src;
-      img.alt = `Portrait ${currentIndex + i + 1}`;
+      img.alt = `Image ${currentIndex + i + 1}`;
       img.className = 'fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
       img.loading = 'lazy';
-      img.width = 1280;
-      img.height = 1706;
+      img.width = 1400;
+      img.height = 2100;
+
+      img.addEventListener('click', () => openImageModal(currentIndex + i, images));
 
       portfolio.appendChild(img);
     });
@@ -475,4 +477,68 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial load
   renderPortfolio('portraits');
   renderPackages('portraits');
+
+  let currentImageIndex = 0;
+  let currentImageList = [];
+
+  const imageModal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+
+  // Handle fullscreen image click
+  function openImageModal(index, images) {
+    currentImageIndex = index;
+    currentImageList = images;
+    modalImg.src = images[index];
+    imageModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal
+  function closeImageModal() {
+    imageModal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Swipe logic
+  let touchStartX = 0, touchStartY = 0;
+
+  imageModal.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  imageModal.addEventListener('touchend', e => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+
+    const absDx = Math.abs(dx);
+    const absDy = Math.abs(dy);
+
+    if (absDx > absDy && absDx > 50) {
+      // Swipe Left or Right
+      if (dx < 0) showNextImage();
+      else showPrevImage();
+    } else if (absDy > absDx && dy > 50) {
+      // Swipe Down to Close
+      closeImageModal();
+    }
+  }, { passive: true });
+
+  function showNextImage() {
+    if (currentImageIndex < currentImageList.length - 1) {
+      currentImageIndex++;
+      modalImg.src = currentImageList[currentImageIndex];
+    }
+  }
+
+  function showPrevImage() {
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      modalImg.src = currentImageList[currentImageIndex];
+    }
+  }
+
 });
