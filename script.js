@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     weddings: {
-      images: [], // add wedding images
+      images: Array.from({ length: 15 }, (_, i) => `images/wedding/Wedding_${i + 1}.webp`),
       packages: [
         {
           title: 'Ceremony Only',
