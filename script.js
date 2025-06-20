@@ -283,6 +283,25 @@ document.addEventListener("DOMContentLoaded", () => {
       portfolio.appendChild(img);
     });
 
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Button event listeners
+    nextBtn.addEventListener('click', showNextImage);
+    prevBtn.addEventListener('click', showPrevImage);
+    closeBtn.addEventListener('click', closeImageModal);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!imageModal.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') showNextImage();
+        if (e.key === 'ArrowLeft') showPrevImage();
+        if (e.key === 'Escape') closeImageModal();
+      }
+    });
+
+
     currentIndex += perBatch;
 
     // Ensure the button is always last
