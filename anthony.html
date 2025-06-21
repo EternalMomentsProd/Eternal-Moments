@@ -331,17 +331,15 @@
           </div>
   </footer>
 
+  <!-- Fullscreen Image Viewer Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black/95 hidden z-50 flex items-center justify-center">
+    <!--- <button id="prevBtn" class="absolute left-4 text-white text-4xl px-3 py-2 bg-black/40 hover:bg-black/70 rounded-full">&larr;</button> --->
+    <!---<button id="nextBtn" class="absolute right-4 text-white text-4xl px-3 py-2 bg-black/40 hover:bg-black/70 rounded-full">&rarr;</button> --->
+    <img id="modalImg" class="max-w-full max-h-full object-contain" />
+    <button id="closeBtn" class="absolute top-4 right-4 text-white text-3xl px-4 py-3 bg-red-600 hover:bg-red-700 rounded-full shadow-lg z-50">&times;</button>
+  </div>
 
   <script defer src="script.js"></script>
-
-
-  <!-- Fullscreen Image Viewer Modal -->
-  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 flex items-center justify-center">
-    <button id="prevBtn" class="absolute left-4 text-white text-4xl px-3 py-2 bg-black/40 hover:bg-black/70 rounded-full">&larr;</button>
-    <img id="modalImg" class="max-w-full max-h-full object-contain" />
-    <button id="nextBtn" class="absolute right-4 text-white text-4xl px-3 py-2 bg-black/40 hover:bg-black/70 rounded-full">&rarr;</button>
-    <button id="closeBtn" class="absolute top-4 right-4 text-white text-2xl px-3 py-2 bg-black/40 hover:bg-red-600 rounded-full">&times;</button>
-  </div>
 
 </body>
 </html>

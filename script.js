@@ -17,6 +17,15 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  
+    let currentImageIndex = 0;
+    let currentImageList = [];
+
+    const imageModal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+
+    closeBtn.addEventListener('click', closeImageModal);
+
   const topics = {
     portraits: {
       images: Array.from({ length: 15 }, (_, i) => `images/portraits/Portrait_${i + 1}.webp`),
@@ -240,109 +249,69 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       ]
     }
-  };
+  }
 
   function renderPortfolio(topicKey) {
-  const portfolio = document.getElementById('topicPortfolio');
-  portfolio.innerHTML = '';
-  const images = topics[topicKey]?.images || [];
-  const perBatch = 5;
-  let currentIndex = 0;
+    const portfolio = document.getElementById('topicPortfolio');
+    portfolio.innerHTML = '';
+    const images = topics[topicKey]?.images || [];
+    const perBatch = 5;
+    let currentIndex = 0;
 
-  // Create Load More wrapper & button
-  const loadMoreWrapper = document.createElement('div');
-  loadMoreWrapper.id = 'loadMoreWrapper';
-  loadMoreWrapper.className = 'w-full flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-gray-900 hover:bg-purple-700 transition duration-300 mt-6';
+    const loadMoreWrapper = document.createElement('div');
+    loadMoreWrapper.id = 'loadMoreWrapper';
+    loadMoreWrapper.className = 'w-full flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-gray-900 hover:bg-purple-700 transition duration-300 mt-6';
 
-  const loadMoreBtn = document.createElement('button');
-  loadMoreBtn.id = 'loadMoreBtn';
-  loadMoreBtn.className = 'w-full h-full flex items-center justify-center text-white text-lg font-semibold';
-  loadMoreBtn.textContent = 'Load More Photos';
-  loadMoreWrapper.appendChild(loadMoreBtn);
+    const loadMoreBtn = document.createElement('button');
+    loadMoreBtn.id = 'loadMoreBtn';
+    loadMoreBtn.className = 'w-full h-full flex items-center justify-center text-white text-lg font-semibold';
+    loadMoreBtn.textContent = 'Load More Photos';
+    loadMoreWrapper.appendChild(loadMoreBtn);
 
-  const noMoreMsg = document.createElement('p');
-  noMoreMsg.id = 'noMoreMsg';
-  noMoreMsg.className = 'text-center text-gray-500 dark:text-gray-400 mt-4 hidden';
-  noMoreMsg.textContent = '🎉 You’ve reached the end of the gallery.';
+    const noMoreMsg = document.createElement('p');
+    noMoreMsg.id = 'noMoreMsg';
+    noMoreMsg.className = 'text-center text-gray-500 dark:text-gray-400 mt-4 hidden';
+    noMoreMsg.textContent = '🎉 You’ve reached the end of the gallery.';
 
 
-  function renderNextBatch() {
-    const nextBatch = images.slice(currentIndex, currentIndex + perBatch);
+    function renderNextBatch() {
+      const nextBatch = images.slice(currentIndex, currentIndex + perBatch);
+      nextBatch.forEach((src, i) => {
+        const img = document.createElement('img');
+        const trueIndex = currentIndex + i;
 
-    nextBatch.forEach((src, i) => {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = `Image ${currentIndex + i + 1}`;
-      img.className = 'fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
-      img.loading = 'lazy';
-      img.width = 1400;
-      img.height = 2100;
+        img.src = src;
+        img.alt = `Image ${currentIndex + i + 1}`;
+        img.className = 'fade-in w-full h-auto rounded-lg shadow-md border-4 border-white dark:border-gray-700 transform hover:scale-105 hover:border-purple-500 transition duration-300';
+        img.loading = 'lazy';
+        img.width = 1400;
+        img.height = 2100;
 
-      img.addEventListener('click', () => openImageModal(currentIndex + i, images));
+        // 🧠 Save the true index to the element
+        img.dataset.index = trueIndex;
 
-      portfolio.appendChild(img);
-    });
+        img.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.index);
+          openImageModal(index, images);
+        });
 
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const closeBtn = document.getElementById('closeBtn');
+        portfolio.appendChild(img);
 
-    // Button event listeners
-    function animateImageChange(newIndex) {
-      modalImg.classList.add('transition-transform', 'duration-300');
-      modalImg.style.transform = 'translateX(100%)';
-      setTimeout(() => {
-        modalImg.src = currentImageList[newIndex];
-        modalImg.style.transform = 'translateX(-100%)';
-        setTimeout(() => {
-          modalImg.style.transform = 'translateX(0)';
-          currentImageIndex = newIndex;
-        }, 30);
-      }, 300);
-    }
+      });
 
-    function showNextImage() {
-      if (currentImageIndex < currentImageList.length - 1) {
-        animateImageChange(currentImageIndex + 1);
+      currentIndex += perBatch;
+      portfolio.appendChild(loadMoreWrapper);
+
+      if (currentIndex >= images.length) {
+        loadMoreWrapper.remove();
+        portfolio.appendChild(noMoreMsg);
+        noMoreMsg.classList.remove('hidden');
       }
     }
-
-    function showPrevImage() {
-      if (currentImageIndex > 0) {
-        animateImageChange(currentImageIndex - 1);
-      }
-    }
-
-    closeBtn.addEventListener('click', closeImageModal);
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!imageModal.classList.contains('hidden')) {
-        if (e.key === 'ArrowRight') showNextImage();
-        if (e.key === 'ArrowLeft') showPrevImage();
-        if (e.key === 'Escape') closeImageModal();
-      }
-    });
-
-
-    currentIndex += perBatch;
-
-    // Ensure the button is always last
-    portfolio.appendChild(loadMoreWrapper);
-
-    if (currentIndex >= images.length) {
-      loadMoreWrapper.remove();
-      portfolio.appendChild(noMoreMsg);
-      noMoreMsg.classList.remove('hidden');
-    }
+    renderNextBatch(); // Load initial batch
+    loadMoreBtn.addEventListener('click', renderNextBatch); // Attach inside
   }
-
-  // Initial render
-  renderNextBatch();
-
-  // Button listener
-  loadMoreBtn.addEventListener('click', renderNextBatch);
-  }
+  
 
 
   function renderPackages(topicKey) {
@@ -520,20 +489,42 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPortfolio('portraits');
   renderPackages('portraits');
 
-  let currentImageIndex = 0;
-  let currentImageList = [];
-
-  const imageModal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImg');
-
   // Handle fullscreen image click
-  function openImageModal(index, images) {
+  function openImageModal(index, imageArray) {
+    if (!imageArray || imageArray.length === 0 || index < 0 || index >= imageArray.length) {
+      console.error("Invalid image modal open attempt");
+      return;
+    }
+
     currentImageIndex = index;
-    currentImageList = images;
-    modalImg.src = images[index];
+    currentImageList = imageArray;
+    modalImg.src = imageArray[index];
     imageModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+
+    modalImg.onload = () => {
+      const isPortrait = modalImg.naturalHeight > modalImg.naturalWidth;
+      const isDesktop = window.innerWidth >= 768;
+
+    modalImg.style.width = '';
+    modalImg.style.height = '';
+    modalImg.style.removeProperty('max-width');
+    modalImg.style.removeProperty('max-height');
+
+      if (isDesktop) {
+        if (isPortrait) {
+          modalImg.style.height = '100vh';
+          modalImg.style.width = 'auto';
+        } else {
+          modalImg.style.width = '100vw';
+          modalImg.style.height = 'auto';
+        }
+      } else {
+        modalImg.classList.add('object-contain');
+      }
+    };
   }
+
 
   // Close modal
   function closeImageModal() {
@@ -573,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentImageIndex < currentImageList.length - 1) {
       currentImageIndex++;
       modalImg.src = currentImageList[currentImageIndex];
+      modalImg.classList.add('transition-transform', 'duration-200');
     }
   }
 
@@ -583,4 +575,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  renderPortfolio('portraits');
+  renderPackages('portraits');
+
+
 });
+
+const modalImg = document.getElementById('modalImg');
