@@ -136,3 +136,35 @@ img.fade-in {
 @keyframes fadeIn {
   to { opacity: 1; }
 }
+
+/* Hover-based bounce (single cycle) */
+@keyframes bounce-once {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-8%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.hover\\:animate-bounce-once:hover {
+  animation: bounce-once 0.5s;
+}
+
+@keyframes bounce-once {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-8%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Tailwind-compatible escape */
+.hover\\:animate-bounce-once:hover {
+  animation: bounce-once 0.5s;
+}

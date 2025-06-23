@@ -17,12 +17,16 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const modalImg = document.getElementById('modalImg');
+
+  // 💫 Add transition styles once
+  modalImg.classList.add('transition-all', 'duration-300', 'ease-in-out');
+
   
     let currentImageIndex = 0;
     let currentImageList = [];
 
     const imageModal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
 
     closeBtn.addEventListener('click', closeImageModal);
 
@@ -260,13 +264,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loadMoreWrapper = document.createElement('div');
     loadMoreWrapper.id = 'loadMoreWrapper';
-    loadMoreWrapper.className = 'w-full flex items-center justify-center rounded-lg shadow-md border-4 border-white dark:border-gray-700 bg-gray-900 hover:bg-purple-700 transition duration-300 mt-6';
+    loadMoreWrapper.className = 'w-full flex justify-center mt-6'; // clean and minimal
 
     const loadMoreBtn = document.createElement('button');
     loadMoreBtn.id = 'loadMoreBtn';
-    loadMoreBtn.className = 'w-full h-full flex items-center justify-center text-white text-lg font-semibold';
-    loadMoreBtn.textContent = 'Load More Photos';
+    loadMoreBtn.className = 'w-full flex justify-center items-center p-4 group';
+
+    loadMoreBtn.innerHTML = `
+      <!-- Desktop: SVG Plus Icon -->
+      <div class="hidden md:flex justify-center items-center
+            w-20 h-20 bg-purple-600 text-white
+            rounded-full transform transition 
+            hover:scale-110 hover:bg-purple-700 hover:animate-bounce-once shadow-lg">
+
+
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-8 h-8" fill="none" viewBox="0 0 24 24" 
+          stroke="currentColor" stroke-width="1">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 5v14" />
+        <path d="M5 12h14" />
+      </svg>
+
+    </div>
+
+
+      <!-- Mobile: Text Button -->
+      <span class="md:hidden text-white text-lg font-semibold">
+        Load More Photos
+      </span>
+    `;
+
+
     loadMoreWrapper.appendChild(loadMoreBtn);
+
 
     const noMoreMsg = document.createElement('p');
     noMoreMsg.id = 'noMoreMsg';
@@ -523,6 +554,11 @@ document.addEventListener("DOMContentLoaded", () => {
         modalImg.classList.add('object-contain');
       }
     };
+
+    setTimeout(() => {
+      modalImg.classList.remove('opacity-0', 'scale-95');
+      modalImg.classList.add('opacity-100', 'scale-100');
+    }, 10);
   }
 
 
@@ -581,4 +617,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const modalImg = document.getElementById('modalImg');
