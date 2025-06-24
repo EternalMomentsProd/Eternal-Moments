@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("darkModeToggle");
+  const html = document.documentElement;
+
+  if (localStorage.getItem("theme") === "dark") {
+    html.classList.add("dark");
+  } else if (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    html.classList.add("dark");
+  }
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      html.classList.toggle("dark");
+      localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    });
+  }
+});
+
 
 const videos = {
   'Paul & Precious Wedding': 'https://www.youtube.com/embed/YnF2N67oHTY?autoplay=1',
