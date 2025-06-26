@@ -1,686 +1,799 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Cinematic wedding videography in Krakow, Poland. Eternal Moments captures your love story in stunning detail. Available for destination weddings.">
-    <meta name="keywords" content="wedding videographer, Krakow, cinematic wedding film, destination weddings, wedding video Poland, Eternal Moments">
-    <meta name="author" content="Josiah at Eternal Moments">
-    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ247 Studios - Videography Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --charcoal: #1C1C1E;
+            --gold: #D4AF37;
+            --teal: #1DAAA4;
+            --cream: #F9F8F4;
+            --blush: #F6D4CB;
+        }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Eternal Moments Wedding Videography" />
-    <meta property="og:description" content="Cinematic wedding videography based in Krakow. Let's capture your love story." />
-    <meta property="og:image" content="https://eternalmomentsprod.github.io/Eternal-Moments/preview.jpg" />
-    <meta property="og:url" content="https://eternalmomentsprod.github.io/Eternal-Moments/" />
-    <meta property="og:type" content="website" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Eternal Moments Wedding Videography" />
-    <meta name="twitter:description" content="Cinematic wedding videography in Krakow and beyond." />
-    <meta name="twitter:image" content="https://eternalmomentsprod.github.io/Eternal-Moments/preview.webp" />
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
 
+        h1, h2, h3, h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding Videographer in Krakow | Eternal Moments Cinematic Films</title>
-    <!-- Load custom styles first -->
-    <link rel="stylesheet" href="tailwind.css">
-    <link rel="stylesheet" href="styles.css">
-    
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
 
+        /* Header */
+        header {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--teal);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--charcoal);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Portfolio Section */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--charcoal);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .play-icon {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        /* Packages Section */
+        .packages {
+            background-color: var(--charcoal);
+            color: white;
+        }
+
+        .packages .section-title {
+            color: white;
+        }
+
+        .package-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--gold);
+            color: var(--charcoal);
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .package-header {
+            padding: 1.5rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+        }
+
+        .package-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .package-body {
+            padding: 1.5rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .package-features li:before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Why Hire Section */
+        .why-hire {
+            background-color: var(--cream);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial:before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.2);
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            line-height: 1;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--teal);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' viewBox='0 0 24 24' stroke='%231C1C1E'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--charcoal);
+            color: white;
+        }
+
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--charcoal);
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--charcoal);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
 </head>
-<body class="font-sans bg-black text-white dark:bg-black dark:text-white">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 dark:bg-gray-800 backdrop-blur-sm z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-serif font-bold text-purple-600 dark:text-purple-500" translate="no">Eternal Moments</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-8">
-                        <a href="#home" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="#portfolio" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
-                        <a href="#about" class="nav-link text-gray-600 dark:text-gray-600 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
-                        <a href="#contact" class="nav-link text-gray-600 dark:text-gray-00 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">Contact</a>
-                        <a href="#faq" class="nav-link text-gray-600 dark:text-gray-00 rounded-full hover:text-purple-600 dark:hover:text-purple-600 px-3 py-2 text-sm font-medium">FAQ</a>
-                        <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300">Get a Quote</a>
-                    </div>
-                </div>
-                <div class="-mr-2 flex items-center space-x-4">
-                    <button id="darkModeToggle" aria-label="Toggle dark mode"
-                            class="dark-mode-toggle p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
-                    <i class="fas fa-moon text-xl"></i>
-                    </button>
-
-                    <button type="button" aria-label="Open mobile menu" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-purple-600 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none md:hidden">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">AJ<span>247</span> Studios</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="anthony.html">Photography</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html#booking" class="cta-button">Book Now</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden absolute w-full bg-white dark:bg-gray-700 shadow-lg z-50">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Home</a>
-                <a href="#portfolio" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Portfolio</a>
-                <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">About</a>
-                <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">Contact</a>
-                <a href="#faq" class="nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-gray-300 hover:text-purple-600 hover:bg-purple-50">FAQ</a>
-                <a href="#contact" class="block px-6 py-3 rounded-full text-base font-medium text-white bg-purple-600 hover:bg-purple-700 dark:bg-purple-600 hover:bg-purple-700 transition duration-300 text-center">Get a Quote</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="relative min-h-screen flex items-center justify-center">
-        <video autoplay muted loop playsinline class="absolute inset-0 object-cover w-full h-full z-0">
-            <source src="preview.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="absolute inset-0 bg-black/30 dark:bg-black/70">
-             <div class="absolute inset-0 bg-gradient-to-br 
-                from-white/5 via-black/20 to-black/40 
-                dark:from-black/60 dark:via-black/70 dark:to-black/90 
-                mix-blend-overlay">
-            </div>  
-        </div>
-
-
-        <!-- Container Wrap -->
-        <div class="relative z-10 w-full">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white dark:text-white mb-6 leading-tight" translate="no">
-                Capturing Love Stories <br>That Last Forever
-            </h1>
-            <p class="text-xl md:text-2xl text-white dark:text-white mb-10 max-w-3xl mx-auto">
-                Beautifully crafted wedding films that preserve your special day's most precious moments.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#portfolio" class="px-8 bg-black/50 py-4 black:bg-white/50 hover:bg-purple-600 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
-                View My Work
-                </a>
-                <a href="#contact" class="px-8 bg-black/50 py-4 black:bg-white/50 hover:bg-purple-600 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
-                Get In Touch
-                </a>
-            </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#portfolio" class="text-white" aria-label="Jump to Portfolio section">
-                <span class="sr-only">Portfolio</span>
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
+        </nav>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="animate">Cinematic Videography by AJ247</h1>
+        <p class="animate delay-1">Real stories. Real motion. I turn energy into edit-ready emotion.</p>
+        <div class="hero-btns animate delay-2">
+            <a href="#portfolio" class="btn">View Portfolio</a>
+            <a href="#packages" class="btn btn-outline">See Packages</a>
+        </div>
+        <a href="#portfolio" class="scroll-down animate delay-3">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">My Wedding Films</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    Each wedding is unique. I strive to capture the true essence of your love story in every frame.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Wedding 1 - FULLY CLICKABLE -->
-                <div onclick="openModal('Paul & Precious Wedding')"
-                    class="video-preview group cursor-pointer relative rounded-xl overflow-hidden shadow-lg bg-gray-100 transition duration-300 hover:scale-[1.01]">
-
-                    <img src="images/paul-precious.webp" 
-                        alt="Paul & Precious Wedding" width="1280" height="720" loading="lazy" 
-                        class="w-full h-auto" />
-
-                    <!-- Overlay Play Icon -->
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                        <i class="fas fa-play text-3xl text-white"></i>
-                        </div>
-                    </div>
-
-                    <!-- Caption -->
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent dark:from-black/70">
-                        <h3 class="text-2xl font-serif font-bold mb-1">Paul & Precious</h3>
-                        <p class="text-purple-300">Krakow Wedding • June 2025</p>
-                    </div>
-                </div>
-
-                
-                <!-- Wedding 2 - FULLY CLICKABLE -->
-                <div onclick="openModal('Shelesea & Herlander')"
-                    class="video-preview group cursor-pointer relative rounded-xl overflow-hidden shadow-lg bg-gray-100 transition duration-300 hover:scale-[1.01]">
-
-                    <img src="images/shelsea-herlander.webp" 
-                        alt="Shelesea & Herlander" width="1280" height="720" loading="lazy"
-                        class="w-full h-auto" />
-
-                    <!-- Overlay Play Icon -->
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                        <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">
-                        <i class="fas fa-play text-3xl text-white"></i>
-                        </div>
-                    </div>
-
-                    <!-- Caption -->
-                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/90 to-transparent dark:from-black/70">
-                        <h3 class="text-2xl font-serif font-bold mb-1">Shelesea & Herlander</h3>
-                        <p class="text-purple-300">Krakow Wedding • June 2024</p>
-                    </div>
+    <section id="portfolio" class="section">
+        <h2 class="section-title">Portfolio Highlights</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wedding Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>Wedding Film</h3>
+                    <p>Emotional & Timeless</p>
                 </div>
             </div>
-            
-            <!-- Coming Soon Placeholder -->
-            <div class="text-center mt-16">
-                <div class="inline-block px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-medium">
-                    <i class="fas fa-spinner fa-spin mr-2"></i> More beautiful weddings coming soon!
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Concert Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>Concert Recap</h3>
+                    <p>High Energy</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sports Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>Sports Highlights</h3>
+                    <p>Dynamic Action</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Promo Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>Business Promo</h3>
+                    <p>Professional & Engaging</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Portrait Video">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>Portrait Session</h3>
+                    <p>Personal & Artistic</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="School Event">
+                <div class="portfolio-overlay">
+                    <i class="fas fa-play play-icon"></i>
+                    <h3>School Event</h3>
+                    <p>Fun & Lively</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-purple-900 text-white dark:bg-purple-950 dark:text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Happy Couples</h2>
-                <div class="w-24 h-1 bg-purple-400 mx-auto mb-6"></div>
-                <p class="text-lg text-purple-200 max-w-2xl mx-auto">
-                    Hear what couples say about their experience working with me.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white/10 backdrop-blur p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 dark:bg-white/5">
-                    <div class="flex items-center mb-4">
-                        <div class="text-amber-300 text-xl mr-1">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="italic text-white mb-6">
-                        "The video was really good!"
-                    </p>
-                    <div class="flex items-center">
-                        <img class="w-12 h-12 rounded-full mr-4 object-cover" src="images/icon.png" alt="Precious">
-                        <div>
-                            <h4 class="font-bold">Precious</h4>
-                            <p class="text-purple-300 text-sm">Bride, June 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Packages Section -->
+    <section id="packages" class="section packages">
+        <h2 class="section-title">Videography Packages</h2>
+        <div class="package-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="weddings">Weddings</button>
+            <button class="category-btn" data-category="concerts">Concerts</button>
+            <button class="category-btn" data-category="sports">Sports</button>
+            <button class="category-btn" data-category="business">Business</button>
+            <button class="category-btn" data-category="events">Events</button>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center gap-12">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="images/videographer.webp" 
-                         alt="Videographer working" width="720" height="720" loading="lazy" class="w-full h-auto rounded-xl shadow-xl">
+        <div class="package-grid">
+            <!-- Wedding Packages -->
+            <div class="package-card" data-category="weddings">
+                <div class="package-header">
+                    <h3>Ceremony Film</h3>
+                    <div class="package-price">1200 zł</div>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">About Me</h2>
-                    <div class="w-24 h-1 bg-purple-600 mb-6"></div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">
-                        Hi, I'm Josiah. I fell in love with wedding videography when my best friend asked to film a wedding with him. Seeing how much those moments meant to them inspired me to pursue this beautiful craft professionally.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">
-                        Although I'm just starting my journey with two weddings under my belt, I bring fresh eyes, contagious enthusiasm, and a commitment to creating films that genuinely reflect each couple's unique love story. My approach is unobtrusive yet attentive, ensuring I capture all the authentic emotions and details of your special day.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center">
-                            <div class="bg-purple-100 p-3 rounded-full mr-3 dark:bg-purple-800/30">
-                                <i class="fas fa-film text-purple-600"></i>
-                            </div>
-                            <span class="font-medium">Cinematic Style</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="bg-purple-100 p-3 rounded-full mr-3 dark:bg-purple-800/30">
-                                <i class="fas fa-heart text-purple-600"></i>
-                            </div>
-                            <span class="font-medium">Passionate Storyteller</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="bg-purple-100 p-3 rounded-full mr-3 dark:bg-purple-800/30">
-                                <i class="fas fa-clock text-purple-600"></i>
-                            </div>
-                            <span class="font-medium">Fast Turnaround</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="bg-purple-100 p-3 rounded-full mr-3 dark:bg-purple-800/30">
-                                <i class="fas fa-camera text-purple-600"></i>
-                            </div>
-                            <span class="font-medium">Quality Equipment</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-medium transition duration-300">
-                        Let's Talk About Your Wedding
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="py-20 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">Wedding Film Packages</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 dark:text-gray-200 max-w-2xl mx-auto">
-                    Simple, transparent pricing with packages to suit your needs
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-200 mb-4">Essentials Package</h3>
-                    <div class="text-4xl font-bold text-purple-600 mb-6">800 zł</div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Up to 4 hours of coverage</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>3-5 minute highlight film</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Ceremony edit</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times-circle mr-3"></i>
-                            <span>No speeches/first dance</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times-circle mr-3"></i>
-                            <span>No drone footage</span>
-                        </li>
-                    <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
-                        <strong>Optional Add-On:</strong> Photography by Anthony<br>
-                        <span class="text-purple-600 font-semibold">🎁 Save 20% when bundled with video!</span>
-                    </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>3–4 min cinematic edit</li>
+                        <li>4 hours of shooting</li>
+                        <li>Ceremony + key moments</li>
+                        <li>Color grading included</li>
+                        <li>1 revision</li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
-                        Inquire Now
-                    </a>
+                    <a href="#contact" class="btn">Inquire Now</a>
                 </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-xl ... border-2 border-purple-600 transform -translate-y-2 dark:bg-gray-800 dark:border-purple-400">
-                    <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-lg">
-                        MOST POPULAR
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Signature Package</h3>
-                    <div class="text-4xl font-bold text-purple-600 mb-6">1200 zł</div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Full day coverage (up to 8 hours)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>5-7 minute highlight film</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Ceremony & speeches edit</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Special dances edit</span>
-                        </li>
-                        <li class="flex items-center text-gray-400">
-                            <i class="fas fa-times-circle mr-3"></i>
-                            <span>No drone footage included... yet</span>
-                        </li>
+            </div>
+            <div class="package-card" data-category="weddings">
+                <div class="package-header">
+                    <h3>Full Day Film</h3>
+                    <div class="package-price">2000 zł</div>
+                </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>6–7 min full-day cinematic film</li>
+                        <li>8 hours of shooting</li>
+                        <li>Getting ready to reception</li>
+                        <li>Drone footage (if location allows)</li>
+                        <li>2 revisions</li>
                     </ul>
-                    <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
-                        <strong>Optional Add-On:</strong> Photography by Anthony<br>
-                        <span class="text-purple-600 font-semibold">🎁 Save 20% when bundled with video!</span>
-                    </div>
-                    <a href="#contact" class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
-                        Get This Package
-                    </a>
+                    <a href="#contact" class="btn">Inquire Now</a>
                 </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-200 mb-4">Custom Package</h3>
-                    <div class="text-4xl font-bold text-purple-600 mb-6">2000+ zł</div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Full day coverage + rehearsal</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Extended documentary edit</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Multiple camera angles</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Engagement session included (Interview)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
-                            <span>Other requests</span>
-                        </li>
+            </div>
+            <div class="package-card" data-category="weddings">
+                <div class="package-header">
+                    <h3>Deluxe Package</h3>
+                    <div class="package-price">2800 zł</div>
+                </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>10 hours coverage</li>
+                        <li>Full film + 1-min Instagram teaser</li>
+                        <li>Pre-wedding consultation</li>
+                        <li>Highlight trailer</li>
+                        <li>3 revisions</li>
                     </ul>
-                    <div class="text-sm text-gray-600 dark:text-gray-300 mb-6">
-                        <strong>Optional Add-On:</strong> Photography by Anthony<br>
-                        <span class="text-purple-600 font-semibold">🎁 Save 20% when bundled with video!</span>
-                    </div>
-                    <a href="#contact" class="block w-full bg-gray-100 dark:bg-gray-700 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white text-center px-6 py-3 rounded-full font-medium transition duration-300">
-                        Build Your Package
-                    </a>
+                    <a href="#contact" class="btn">Inquire Now</a>
                 </div>
             </div>
-            
-            <div class="text-center mt-12 text-gray-600 dark:text-gray-300">
-                <p class="mb-4">All packages include digital delivery</p>
-                <div class="inline-block px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-medium">
-                    <i class="fas fa-calendar-check mr-2"></i> Limited availability for 2025 dates - book early!
+            <!-- Concert Packages -->
+            <div class="package-card" data-category="concerts">
+                <div class="package-header">
+                    <h3>Mini Gig Film</h3>
+                    <div class="package-price">150 zł</div>
+                </div>
+                <div class="package-body">
+                    <ul class="package-features">
+                        <li>30–60 sec social media cut</li>
+                        <li>30 min shoot</li>
+                        <li>Basic color correction</li>
+                        <li>1 song</li>
+                    </ul>
+                    <a href="#contact" class="btn">Inquire Now</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-300 text-white dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex gap-12 items-center">
-                <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-6">Let's Capture Your Love Story</h2>
-                    <div class="w-24 h-1 bg-purple-600 mb-6"></div>
-                    <div class="bg-gray-100 dark:bg-gray-800 backdrop-blur-sm p-6 rounded-lg shadow-sm mb-8">
-                        <p class="text-lg text-gray-700 dark:text-gray-200 mb-6 font-medium">
-                            Whether you're just starting to plan your wedding or have all the details finalized, I'd love to hear about your vision. Fill out the form and I'll get back to you as soon as possible.
-                        </p>
-                        
-                        <div class="space-y-4 border-t border-gray-300 dark:border-gray-600 pt-4">
-                            <div class="flex items-center">
-                                <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600">
-                                    <i class="fas fa-envelope text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg text-gray-700 dark:text-gray-200">Email Me</h4>
-                                    <a href="mailto:contact@eternalmoments.com" class="text-purple-600 hover:text-purple-800 font-medium">eternalmomentsprod@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <div class="bg-purple-600/10 p-3 rounded-xl mr-4 text-purple-600" aria-hidden="true">
-                                    <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-lg text-gray-700 dark:text-gray-200">Follow Me</h3>
-                                    <a 
-                                    href="https://www.instagram.com/eternalmomentsprod" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    class="text-purple-600 hover:text-purple-800 font-medium"
-                                    aria-label="Follow Eternal Moments on Instagram">
-                                    @eternalmomentsprod
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-                    <form id="contactForm" action="https://formsubmit.co/eternalmomentsprod@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="New Wedding Videography Inquiry">
-                        <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://eternalmomentsprod.github.io/Eternal-Moments/thankyou.html">
-                        <div id="formSuccess" class="hidden text-green-600 text-center mt-4 font-medium">
-                            Message sent! We'll get back to you soon.
-                        </div>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Your Names</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white">
-                        </div>
-                        <div class="mb-6">
-                            <label for="date" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Wedding Date</label>
-                            <input type="date" id="date" name="date" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-700 dark:bg-gray-700 dark:text-white">
-                        </div>
-                        <div class="mb-6">
-                            <label for="package" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Package Interest</label>
-                            <select id="package" name="package" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent text-gray-700 dark:bg-gray-700 dark:text-white">
-                                <option value="">Select a package</option>
-                                <option value="Essentials">Essentials Package ($200)</option>
-                                <option value="Signature">Signature Package ($300)</option>
-                                <option value="Custom">Custom Package ($500+)</option>
-                                <option value="Not sure">Not sure - would like recommendations</option>
-                            </select>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 dark:text-gray-200 font-medium mb-2">Tell Me About Your Wedding</label>
-                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent dark:bg-gray-700 dark:text-white"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-4 rounded-lg font-medium transition duration-300">
-                            <span class="submit-text">Send Inquiry</span>
-                            <span class="loading hidden">
-                                <i class="fas fa-spinner fa-spin mr-2"></i> Sending...
-                            </span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                    Common questions from couples
-                </p>
-            </div>
-            
-            <div class="space-y-4">
-                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">How far in advance should we book videography?</span>
-                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            I recommend booking as soon as you have your wedding date and venue secured to ensure availability. Popular dates (especially weekends in summer and fall) often book 2-3 months in advance. That said, I sometimes have last-minute availability, so don't hesitate to inquire even if your wedding is coming up soon.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">How long does it take to receive our wedding film?</span>
-                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            My current turnaround time is 6-8 weeks for the highlight film and 8-10 weeks for any additional edits (ceremony, speeches, dances). I pride myself on delivering beautiful films in less time than many competitors while still maintaining my high standards for quality. You'll receive a digital preview first and have the opportunity to request minor tweaks if needed.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">Do you travel for destination weddings?</span>
-                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Absolutely! I love destination weddings. Travel within 50 KM is included in my packages. Beyond that, I charge reasonable travel fees depending on location. I base in Krakow Poland, I require the couple to cover transportation. I'll handle all equipment logistics and provide you with beautiful footage no matter where you say "I do."
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="border border-gray-200 dark:border-gray-600 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full text-left p-6 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-800 transition duration-300 flex justify-between items-center">
-                        <span class="text-lg font-medium text-gray-900 dark:text-gray-100 dark:text-gray-100">What's your payment structure?</span>
-                        <i class="fas fa-plus text-purple-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer hidden p-6 bg-white dark:bg-gray-900 dark:text-gray-200">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            To secure your date, I require a 30% non-refundable deposit with a signed contract. The second payment of 30% is due 90 days before your wedding, and the final 40% balance is due 14 days prior to your wedding date. I accept all major credit cards, PayPal, bank transfers, and checks. For destination weddings, travel costs may be required upfront when traveling.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-16 bg-purple-900 dark:bg-purple-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Ready to Preserve Your Special Day?</h2>
-            <p class="text-xl text-purple-200 mb-8">
-                Limited availability for 2025 and early 2026 dates. Contact me today to check availability and start planning your perfect wedding film.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#portfolio" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
-                    Get In Touch
-                </a>
-                <a href="#portfolio" class="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-full font-medium transition duration-300 border-2 border-white">
-                    See More Work
-                </a>
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- Footer -->
-    <footer class="bg-gray-900 dark:bg-black text-gray-400 dark:text-gray-300 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <h3 class="text-2xl font-serif font-bold text-white mb-4" translate="no">Eternal Moments</h3>
-                    <p class="mb-6">
-                        Capturing the love, joy, and emotion of your wedding day through beautiful cinematic storytelling.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a 
-                            href="https://www.instagram.com/eternalmomentsprod"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                            class="text-gray-400 hover:text-purple-400 transition duration-300 dark:text-gray-300 dark:hover:text-white">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        <span class="sr-only">Instagram</span>
-                        </a>
-
-                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 dark:text-gray-300 dark:hover:text-white">
-                                <i class="fab fa-facebook-f text-2xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 dark:text-gray-300 dark:hover:text-white">
-                                <i class="fab fa-youtube text-2xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 dark:text-gray-300 dark:hover:text-white">
-                                <i class="fab fa-vimeo-v text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-                    
-                    <div>
-                        <h4 class="text-white font-medium text-lg mb-4" translate="no">Quick Links</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#home" class="hover:text-white transition duration-300" translate="no">Home</a></li>
-                            <li><a href="#portfolio" class="hover:text-white transition duration-300" translate="no">Portfolio</a></li>
-                            <li><a href="#about" class="hover:text-white transition duration-300" translate="no">About</a></li>
-                            <li><a href="#contact" class="hover:text-white transition duration-300" translate="no">Contact</a></li>
-                            <li><a href="#faq" class="hover:text-white transition duration-300" translate="no">FAQ</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-white font-medium text-lg mb-4" translate="no">Legal</h4>
-                        <ul class="space-y-2">
-                            <li><a href="privacy.html" class="hover:text-white transition duration-300" translate="no">Privacy Policy</a></li>
-                            <li><a href="terms.html" class="hover:text-white transition duration-300" translate="no">Terms of Service</a></li>
-                            <li><a href="cookies.html" class="hover:text-white transition duration-300" translate="no">Cookie Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
-                    <p translate="no">
-                        <span id="copyright-year"></span> Eternal Moments Wedding Videography. All rights reserved.
-                    </p>
-                </div>
-            </div>
-    </footer>
-
-    <!-- Video Modal -->
-    <div id="videoModal" role="dialog" aria-modal="true" aria-label="Video Preview Modal"
-        class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center">
-
-    <div class="relative w-full mx-4" style="max-width: 90vw; max-height: 90vh">
-        <button onclick="closeModal()" class="absolute -top-12 -right-12 bg-white rounded-full w-10 h-10 flex items-center justify-center z-50 hover:bg-gray-100 transition duration-300 md:-top-4 md:-right-4">
-        <i class="fas fa-times text-gray-900 text-xl" aria-hidden="true"></i>
-        <span class="sr-only">Close video</span>
-        </button>
-
-        <div class="aspect-w-16 aspect-h-9 w-full relative" style="padding-bottom: 56.25%">
-        <iframe id="modalVideo" class="absolute top-0 left-0 w-full h-full" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen></iframe>
-        </div>
-    </div>
-    </div>
-
-
-
-    <!-- Success Modal (optional) -->
-    <div id="successModal" class="hidden fixed inset-0 overflow-y-auto z-50">
-        <div class="min-h-screen flex items-center justify-center p-4">
-        <div class="w-full max-w-md bg-white rounded-xl shadow-2xl p-8 relative">
-            <button onclick="closeSuccessModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-            <i class="fas fa-times text-xl"></i>
-            </button>
-            <div class="text-center">
-            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100">
-                <i class="fas fa-check text-green-600 text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-900 mt-5 mb-2">Thank you!</h3>
-            <p class="text-gray-600 mb-6">Your message has been sent successfully.</p>
-            <button onclick="closeSuccessModal()" class="w-full bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                Continue Browsing
-            </button>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- Your custom JavaScript (burger menu, dark mode, form logic) -->
-    <script defer src="script.js"></script>
-
-</body>
+            <div class="package-card" data-category="concerts">
+                <
 </html>
