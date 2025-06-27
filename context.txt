@@ -1,0 +1,33 @@
+Page: Photographer Page – AJ247 Studios (Anthony)
+
+Purpose:
+Create a FormSubmit.co HTML form that sends booking/inquiry data to jobangles4life@gmail.com.
+This form is specifically for Anthony’s photography services.
+
+Goal:
+- Collect relevant inquiry details: name, email (with confirmation), shoot type, date, budget, and notes
+- Use only HTML + vanilla JavaScript for validation
+- Prevent form submission if email fields don’t match
+- Use FormSubmit hidden fields to:
+  - Set a subject line: “New Photography Inquiry – AJ247 Studios”
+  - Disable CAPTCHA
+  - Use the “box” email template
+  - Redirect to a thank-you page: thank-you.html
+
+Required Inputs:
+- Name (text, required)
+- Email (email, required)
+- Confirm Email (email, required, must match above)
+- Shoot Type (select): Weddings, Concerts, Sports, Portraits, Family, Other
+- Event Date (date, optional but encouraged)
+- Estimated Budget (text, optional)
+- Notes / Message (textarea, optional)
+
+Hidden Fields:
+- _subject = "New Photography Inquiry – AJ247 Studios"
+- _captcha = false
+- _template = box
+- _next = thank-you.html
+
+Make the form semantically accessible with <label> elements and appropriate types.
+Do not use external libraries — this should be raw HTML + optional inline JavaScript.
